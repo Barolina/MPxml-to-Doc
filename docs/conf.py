@@ -19,6 +19,13 @@ sys.path.insert(0, os.path.abspath('../..'))
 
 
 autoclass_content = 'both'
+
+import mock
+
+MOCK_MODULES = ['lxml',]
+for mod_name in MOCK_MODULES:
+    sys.modules[mod_name] = mock.Mock()
+
 # -- Project information -----------------------------------------------------
 
 project = 'Mp_to_Word'
