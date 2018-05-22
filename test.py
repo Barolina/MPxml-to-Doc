@@ -52,9 +52,9 @@ META_TPL_ORDINATE = {  # шаблон для пребразвоания в во�
 
 class XMLElemenBase:
     """
-        Базовый класс - определяющий структуру наследников
+       qweqwe
 
-        :param node - на вход узел дерева
+        :param node - ewrwer
         :return  json(object)
     """
     def __init__(self, node):
@@ -72,15 +72,15 @@ class XMLElemenBase:
 
 class StaticMethod:
     """
-        Вспомогательный класс для работы  c node xml
+        sdfswerwe
     """
 
     # @staticmethod
     def type_ordinate(node):
         """
-            Определени типа  коорлинат - на  образование или на уточнение
+            kdfgljdfgdsggfsdfg
 
-        :param node:
+        :param node:wer  wer
         :return: ExistOrdinate ot NewOrdinate
         """
         isExist = CNST_UNDEFINE
@@ -100,50 +100,3 @@ class StaticMethod:
                                            or initial_node.tag == 'ExistSubParcel' else False
                 isExist = CNST_EXISTPARCEL if ((isOrdinate is None) or isExistSubParcel) else CNST_NEWPARCEL
         return isExist
-
-    # @staticmethod
-    def get_empty_tpl(node):
-        """
-        :param node: node
-        :return: Return empty tpl rows  for word, depends on Type Ordinate
-        """
-        if node is not None:
-            name_type_ord = StaticMethod.type_ordinate(node)
-            return META_TPL_ORDINATE[name_type_ord]
-        return None
-
-    # @staticmethod
-    def merge_array_list(key, array_value):
-        """
-            преобразоание  списков ключей и массива значений в словарь
-
-        :param key: ключи словаря
-        :param array_value: массив значений
-        :return:  [{ 'id': 1, 'name': 'ЗУ1'}, { 'id': 1, 'name': 'ЗУ1'},]
-        """
-        res = list()
-        if key and array_value:
-            for _ in array_value:
-                res.append(dict(zip(key, _)))
-        return res
-
-    # @staticmethod
-    def xml_key_to_text(node, path, name_xsd):
-        """
-            получение знсачения ноды по ключу из справоника
-
-        :param node:  узел - где ищем
-        :param path: парсер - что(как) ищем
-        :param name_xsd: наименование сравочнка
-        :return: text
-        """
-        if not name_xsd:
-            logging.error(f"""Не передан справочник {name_xsd}""")
-            return ''
-        _list = node.xpath(path)
-        res = ''
-        if _list:
-            path = os.path.join(cnfg.PATH_XSD, name_xsd)
-            res = value_from_xsd(path, _list[0])
-            node.clear()
-        return res
