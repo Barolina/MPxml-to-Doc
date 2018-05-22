@@ -24,6 +24,7 @@ META_TPL_ORDINATE = {  # шаблон для пребразвоания в во�
 class XMLElemenBase:
     """
         Базовый класс - определяющий структуру наследников
+
         :param node - на вход узел дерева
         :return  json(object)
     """
@@ -34,6 +35,7 @@ class XMLElemenBase:
         """
             Return json - object, based on the dictionary in config
             (данные метод реализован у всех наследников, необходимых для render шааболонов)
+
         :return: json()
         """
         pass
@@ -43,12 +45,14 @@ class StaticMethod:
     """
         Вспомогательный класс для работы  c node xml
     """
+
     @staticmethod
     def type_ordinate(node):
         """
             Определени типа  коорлинат - на  образование или на уточнение
+
         :param node:
-        :return:
+        :return: ExistOrdinate ot NewOrdinate
         """
         isExist = CNST_UNDEFINE
         initial_node = None
@@ -83,12 +87,10 @@ class StaticMethod:
     def merge_array_list(key, array_value):
         """
             преобразоание  списков ключей и массива значений в словарь
+
         :param key: ключи словаря
         :param array_value: массив значений
-        :return:  [
-                    { 'id': 1, 'name': 'ЗУ1'},
-                    { 'id': 1, 'name': 'ЗУ1'},
-                  ]
+        :return:  [{ 'id': 1, 'name': 'ЗУ1'}, { 'id': 1, 'name': 'ЗУ1'},]
         """
         res = list()
         if key and array_value:
@@ -100,6 +102,7 @@ class StaticMethod:
     def xml_key_to_text(node, path, name_xsd):
         """
             получение знсачения ноды по ключу из справоника
+
         :param node:  узел - где ищем
         :param path: парсер - что(как) ищем
         :param name_xsd: наименование сравочнка
@@ -123,9 +126,9 @@ class Ordinatre(list):
         """
         Get a list of coorinates the  inner contour(SpatialElement)
         Получить список коорлинат внутреннего контура
+
         :param node: SpatialElement
-        :param type_ordinate_ord: тип коорлинат уточнение или образовние
-        (лучше передать, так как не имеет смылса высчитавать тип в каждом внутреннем контуре)
+        :param type_ordinate_ord: тип коорлинат уточнение или образовние (лучше передать, так как не имеет смылса высчитавать тип в каждом внутреннем контуре)
         """
         super(Ordinatre, self).__init__()
         self.node = node
@@ -134,6 +137,7 @@ class Ordinatre(list):
     def xml_new_ordinate_to_list(self):
         """
             Список координат внутренного контура на образование
+
         :return: list ordinats
         """
         spatial_unit = self.node.xpath('child::*/*[starts-with(name(),"Ordinate")]')
@@ -153,6 +157,7 @@ class Ordinatre(list):
     def xml_exist_ordinate_to_list(self):
         """
             Список координат внутреннего конутра на уточнение
+
         :return: list()
         """
         spatial_unit = self.node.xpath('child::*')
@@ -192,6 +197,7 @@ class EntitySpatial(list):
         """
         Get  a list of ordinates the EntitySpatial
         Получить список координат EntitySpatial
+
         :param node this EntitySpatial
         :return list ordinats EntitySpatial
         """
@@ -203,6 +209,7 @@ class EntitySpatial(list):
 
     def xml_to_list(self):
         """
+
             :return: возвращает список  координат EntitySpatial
         """
         result = list()
@@ -228,6 +235,7 @@ class EntitySpatial(list):
 class Border(list):
     """
         Get a list of  border the EntitySpatial
+
     """
 
     def __init__(self, node):
@@ -289,14 +297,15 @@ class Border(list):
 
 
 class XmlFullOrdinate(list):
+
     CNST_NAME_CONTOURS = 'Contours'
     CNST_NAME_ENTITY_SPATIAL = 'EntitySpatial'
 
     def __init__(self, node, definition):
         """
             Get full ordinate and full borders
-        :param node: Contours or EntitySpatial
-        :parma definition  this CadastralNumber  or Definition ot NumberRecoed
+            node: Contours or EntitySpatial
+            definition  this CadastralNumber  or Definition ot NumberRecoed
         """
         super(XmlFullOrdinate,self).__init__()
         self.node = node
@@ -336,10 +345,11 @@ class XmlFullOrdinate(list):
 
     def full_borders(self):
         """
-                  get list all of borders
-              :param node: Contours
-              :return:
-              """
+              get list all of borders
+
+          :param node: Contours
+          :return: list borders
+        """
         # check Contours or EntitySpatial
         res = list()
         if self.node is not None:
@@ -364,11 +374,7 @@ class XmlFullOrdinate(list):
 class ElementSubParcel:
     """
        get inforamtion the dict - one SubParcel
-       {
-        'defiition': 'чзу1',
-        'entity_spatial' : list(),
-        'type_ordinate' : newparcel | existparcel
-       }
+
     """
     def __init__(self, node):
         super(ElementSubParcel, self).__init__()
@@ -398,6 +404,7 @@ class ElementSubParcel:
     def __general_info(self, position):
         """
           словарб общих сведений  части
+
         :param position: просто  задать номер
         :return:
         """

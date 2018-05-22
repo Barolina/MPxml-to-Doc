@@ -26,13 +26,14 @@ class XmlTitleDict:
     """
     def __init__(self, node):
         """
-        :param node: GeneralCadastralWorks
+        GeneralCadastralWorks
         """
         self.node = node
         self.contractor = None
 
     def __children_dict(self, node, *args):
         """
+
         :param node: Contractor/child
         :return: dict (node.tag : node.text)
         """
@@ -99,6 +100,7 @@ class XmlTitleDict:
     def to_dict(self):
         """
             Данный  метод  возвращает словарь значения для  заполнения  шаблона title.docx
+
         :return: dict->cnfg.Title
         """
         result = None
@@ -391,6 +393,7 @@ class XmlNewParcel(XmlParcel):
     def full_area(self, node):
         """
             Преобразование площади
+
         :param node: Area
         :return: valua is the Area
         """

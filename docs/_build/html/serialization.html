@@ -17,6 +17,8 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Алфавитный указатель" href="genindex.html" />
     <link rel="search" title="Поиск" href="search.html" />
+    <link rel="next" title="test module" href="test.html" />
+    <link rel="prev" title="test" href="modules.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -65,13 +67,7 @@
 <em class="property">class </em><code class="descclassname">serialization.basic.</code><code class="descname">ElementSubParcel</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/serialization/basic.html#ElementSubParcel"><span class="viewcode-link">[исходный код]</span></a><a class="headerlink" href="#serialization.basic.ElementSubParcel" title="Ссылка на это определение">¶</a></dt>
 <dd><blockquote>
 <div>Базовые классы: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(в Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></div></blockquote>
-<p>get inforamtion the dict - one SubParcel
-{</p>
-<blockquote>
-<div>„defiition“: „чзу1“,
-„entity_spatial“ : list(),
-„type_ordinate“ : newparcel | existparcel</div></blockquote>
-<p>}</p>
+<p>get inforamtion the dict - one SubParcel</p>
 <dl class="attribute">
 <dt id="serialization.basic.ElementSubParcel.type_ordinate">
 <code class="descname">type_ordinate</code><a class="headerlink" href="#serialization.basic.ElementSubParcel.type_ordinate" title="Ссылка на это определение">¶</a></dt>
@@ -100,8 +96,8 @@
 <dd><blockquote>
 <div>Базовые классы: <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(в Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a></div></blockquote>
 <p>Get  a list of ordinates the EntitySpatial
-Получить список координат EntitySpatial
-:param node this EntitySpatial
+Получить список координат EntitySpatial</p>
+<p>:param node this EntitySpatial
 :return list ordinats EntitySpatial</p>
 <dl class="method">
 <dt id="serialization.basic.EntitySpatial.xml_to_list">
@@ -124,10 +120,19 @@
 <dd><blockquote>
 <div>Базовые классы: <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(в Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a></div></blockquote>
 <p>Get a list of coorinates the  inner contour(SpatialElement)
-Получить список коорлинат внутреннего контура
-:param node: SpatialElement
-:param type_ordinate_ord: тип коорлинат уточнение или образовние
-(лучше передать, так как не имеет смылса высчитавать тип в каждом внутреннем контуре)</p>
+Получить список коорлинат внутреннего контура</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Параметры:</th><td class="field-body"><ul class="first last simple">
+<li><strong>node</strong> – SpatialElement</li>
+<li><strong>type_ordinate_ord</strong> – тип коорлинат уточнение или образовние (лучше передать, так как не имеет смылса высчитавать тип в каждом внутреннем контуре)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 <dl class="method">
 <dt id="serialization.basic.Ordinatre.xml_exist_ordinate_to_list">
 <code class="descname">xml_exist_ordinate_to_list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/serialization/basic.html#Ordinatre.xml_exist_ordinate_to_list"><span class="viewcode-link">[исходный код]</span></a><a class="headerlink" href="#serialization.basic.Ordinatre.xml_exist_ordinate_to_list" title="Ссылка на это определение">¶</a></dt>
@@ -201,14 +206,7 @@
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Результат:</th><td class="field-body"><p class="first last"><dl class="docutils">
-<dt>[</dt>
-<dd><p class="first last">{ „id“: 1, „name“: „ЗУ1“},
-{ „id“: 1, „name“: „ЗУ1“},</p>
-</dd>
-</dl>
-<p>]</p>
-</p>
+<tr class="field-even field"><th class="field-name">Результат:</th><td class="field-body"><p class="first last">[{ „id“: 1, „name“: „ЗУ1“}, { „id“: 1, „name“: „ЗУ1“},]</p>
 </td>
 </tr>
 </tbody>
@@ -226,7 +224,7 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Параметры:</th><td class="field-body"><strong>node</strong> – </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Результат:</th><td class="field-body"></td>
+<tr class="field-even field"><th class="field-name">Результат:</th><td class="field-body">ExistOrdinate ot NewOrdinate</td>
 </tr>
 </tbody>
 </table>
@@ -262,8 +260,8 @@
 <em class="property">class </em><code class="descclassname">serialization.basic.</code><code class="descname">XMLElemenBase</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/serialization/basic.html#XMLElemenBase"><span class="viewcode-link">[исходный код]</span></a><a class="headerlink" href="#serialization.basic.XMLElemenBase" title="Ссылка на это определение">¶</a></dt>
 <dd><blockquote>
 <div>Базовые классы: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(в Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></div></blockquote>
-<p>Базовый класс - определяющий структуру наследников
-:param node - на вход узел дерева
+<p>Базовый класс - определяющий структуру наследников</p>
+<p>:param node - на вход узел дерева
 :return  json(object)</p>
 <dl class="method">
 <dt id="serialization.basic.XMLElemenBase.to_dict">
@@ -287,19 +285,10 @@
 <dt id="serialization.basic.XmlFullOrdinate">
 <em class="property">class </em><code class="descclassname">serialization.basic.</code><code class="descname">XmlFullOrdinate</code><span class="sig-paren">(</span><em>node</em>, <em>definition</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/serialization/basic.html#XmlFullOrdinate"><span class="viewcode-link">[исходный код]</span></a><a class="headerlink" href="#serialization.basic.XmlFullOrdinate" title="Ссылка на это определение">¶</a></dt>
 <dd><blockquote>
-<div><p>Базовые классы: <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(в Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a></p>
-<blockquote>
-<div>Get full ordinate and full borders</div></blockquote>
-</div></blockquote>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Параметры:</th><td class="field-body"><strong>node</strong> – Contours or EntitySpatial</td>
-</tr>
-</tbody>
-</table>
-<p>:parma definition  this CadastralNumber  or Definition ot NumberRecoed</p>
+<div>Базовые классы: <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(в Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a></div></blockquote>
+<p>Get full ordinate and full borders
+node: Contours or EntitySpatial
+definition  this CadastralNumber  or Definition ot NumberRecoed</p>
 <dl class="attribute">
 <dt id="serialization.basic.XmlFullOrdinate.CNST_NAME_CONTOURS">
 <code class="descname">CNST_NAME_CONTOURS</code><em class="property"> = 'Contours'</em><a class="headerlink" href="#serialization.basic.XmlFullOrdinate.CNST_NAME_CONTOURS" title="Ссылка на это определение">¶</a></dt>
@@ -321,7 +310,7 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Параметры:</th><td class="field-body"><strong>node</strong> – Contours</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Результат:</th><td class="field-body"></td>
+<tr class="field-even field"><th class="field-name">Результат:</th><td class="field-body">list borders</td>
 </tr>
 </tbody>
 </table>
@@ -688,14 +677,7 @@ node: SubParcels</p>
 <dd><blockquote>
 <div>Базовые классы: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(в Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></div></blockquote>
 <p>Формированяи словаря для титульника</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Параметры:</th><td class="field-body"><strong>node</strong> – GeneralCadastralWorks</td>
-</tr>
-</tbody>
-</table>
+<p>GeneralCadastralWorks</p>
 <dl class="method">
 <dt id="serialization.element_to_dict.XmlTitleDict.to_dict">
 <code class="descname">to_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/serialization/element_to_dict.html#XmlTitleDict.to_dict"><span class="viewcode-link">[исходный код]</span></a><a class="headerlink" href="#serialization.element_to_dict.XmlTitleDict.to_dict" title="Ссылка на это определение">¶</a></dt>
@@ -743,6 +725,10 @@ node: SubParcels</p>
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">test</a><ul>
+      <li>Previous: <a href="modules.html" title="предыдущая глава">test</a></li>
+      <li>Next: <a href="test.html" title="следующая глава">test module</a></li>
+  </ul></li>
   </ul></li>
 </ul>
 </div>

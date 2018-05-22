@@ -58,6 +58,7 @@
 <div class="viewcode-block" id="XMLElemenBase"><a class="viewcode-back" href="../../serialization.html#serialization.basic.XMLElemenBase">[документация]</a><span class="k">class</span> <span class="nc">XMLElemenBase</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Базовый класс - определяющий структуру наследников</span>
+
 <span class="sd">        :param node - на вход узел дерева</span>
 <span class="sd">        :return  json(object)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -68,6 +69,7 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">            Return json - object, based on the dictionary in config</span>
 <span class="sd">            (данные метод реализован у всех наследников, необходимых для render шааболонов)</span>
+
 <span class="sd">        :return: json()</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">pass</span></div></div>
@@ -77,12 +79,14 @@
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Вспомогательный класс для работы  c node xml</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
 <div class="viewcode-block" id="StaticMethod.type_ordinate"><a class="viewcode-back" href="../../serialization.html#serialization.basic.StaticMethod.type_ordinate">[документация]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">type_ordinate</span><span class="p">(</span><span class="n">node</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">            Определени типа  коорлинат - на  образование или на уточнение</span>
+
 <span class="sd">        :param node:</span>
-<span class="sd">        :return:</span>
+<span class="sd">        :return: ExistOrdinate ot NewOrdinate</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">isExist</span> <span class="o">=</span> <span class="n">CNST_UNDEFINE</span>
         <span class="n">initial_node</span> <span class="o">=</span> <span class="kc">None</span>
@@ -117,12 +121,10 @@
     <span class="k">def</span> <span class="nf">merge_array_list</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">array_value</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">            преобразоание  списков ключей и массива значений в словарь</span>
+
 <span class="sd">        :param key: ключи словаря</span>
 <span class="sd">        :param array_value: массив значений</span>
-<span class="sd">        :return:  [</span>
-<span class="sd">                    { &#39;id&#39;: 1, &#39;name&#39;: &#39;ЗУ1&#39;},</span>
-<span class="sd">                    { &#39;id&#39;: 1, &#39;name&#39;: &#39;ЗУ1&#39;},</span>
-<span class="sd">                  ]</span>
+<span class="sd">        :return:  [{ &#39;id&#39;: 1, &#39;name&#39;: &#39;ЗУ1&#39;}, { &#39;id&#39;: 1, &#39;name&#39;: &#39;ЗУ1&#39;},]</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">res</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">key</span> <span class="ow">and</span> <span class="n">array_value</span><span class="p">:</span>
@@ -134,6 +136,7 @@
     <span class="k">def</span> <span class="nf">xml_key_to_text</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">name_xsd</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">            получение знсачения ноды по ключу из справоника</span>
+
 <span class="sd">        :param node:  узел - где ищем</span>
 <span class="sd">        :param path: парсер - что(как) ищем</span>
 <span class="sd">        :param name_xsd: наименование сравочнка</span>
@@ -157,9 +160,9 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get a list of coorinates the  inner contour(SpatialElement)</span>
 <span class="sd">        Получить список коорлинат внутреннего контура</span>
+
 <span class="sd">        :param node: SpatialElement</span>
-<span class="sd">        :param type_ordinate_ord: тип коорлинат уточнение или образовние</span>
-<span class="sd">        (лучше передать, так как не имеет смылса высчитавать тип в каждом внутреннем контуре)</span>
+<span class="sd">        :param type_ordinate_ord: тип коорлинат уточнение или образовние (лучше передать, так как не имеет смылса высчитавать тип в каждом внутреннем контуре)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">Ordinatre</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">node</span> <span class="o">=</span> <span class="n">node</span>
@@ -168,6 +171,7 @@
 <div class="viewcode-block" id="Ordinatre.xml_new_ordinate_to_list"><a class="viewcode-back" href="../../serialization.html#serialization.basic.Ordinatre.xml_new_ordinate_to_list">[документация]</a>    <span class="k">def</span> <span class="nf">xml_new_ordinate_to_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">            Список координат внутренного контура на образование</span>
+
 <span class="sd">        :return: list ordinats</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">spatial_unit</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;child::*/*[starts-with(name(),&quot;Ordinate&quot;)]&#39;</span><span class="p">)</span>
@@ -187,6 +191,7 @@
 <div class="viewcode-block" id="Ordinatre.xml_exist_ordinate_to_list"><a class="viewcode-back" href="../../serialization.html#serialization.basic.Ordinatre.xml_exist_ordinate_to_list">[документация]</a>    <span class="k">def</span> <span class="nf">xml_exist_ordinate_to_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">            Список координат внутреннего конутра на уточнение</span>
+
 <span class="sd">        :return: list()</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">spatial_unit</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;child::*&#39;</span><span class="p">)</span>
@@ -226,6 +231,7 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get  a list of ordinates the EntitySpatial</span>
 <span class="sd">        Получить список координат EntitySpatial</span>
+
 <span class="sd">        :param node this EntitySpatial</span>
 <span class="sd">        :return list ordinats EntitySpatial</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -237,6 +243,7 @@
 
 <div class="viewcode-block" id="EntitySpatial.xml_to_list"><a class="viewcode-back" href="../../serialization.html#serialization.basic.EntitySpatial.xml_to_list">[документация]</a>    <span class="k">def</span> <span class="nf">xml_to_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
+
 <span class="sd">            :return: возвращает список  координат EntitySpatial</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">result</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
@@ -262,6 +269,7 @@
 <div class="viewcode-block" id="Border"><a class="viewcode-back" href="../../serialization.html#serialization.basic.Border">[документация]</a><span class="k">class</span> <span class="nc">Border</span><span class="p">(</span><span class="nb">list</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get a list of  border the EntitySpatial</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
@@ -323,14 +331,15 @@
 
 
 <div class="viewcode-block" id="XmlFullOrdinate"><a class="viewcode-back" href="../../serialization.html#serialization.basic.XmlFullOrdinate">[документация]</a><span class="k">class</span> <span class="nc">XmlFullOrdinate</span><span class="p">(</span><span class="nb">list</span><span class="p">):</span>
+
     <span class="n">CNST_NAME_CONTOURS</span> <span class="o">=</span> <span class="s1">&#39;Contours&#39;</span>
     <span class="n">CNST_NAME_ENTITY_SPATIAL</span> <span class="o">=</span> <span class="s1">&#39;EntitySpatial&#39;</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="n">definition</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">            Get full ordinate and full borders</span>
-<span class="sd">        :param node: Contours or EntitySpatial</span>
-<span class="sd">        :parma definition  this CadastralNumber  or Definition ot NumberRecoed</span>
+<span class="sd">            node: Contours or EntitySpatial</span>
+<span class="sd">            definition  this CadastralNumber  or Definition ot NumberRecoed</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">XmlFullOrdinate</span><span class="p">,</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">node</span> <span class="o">=</span> <span class="n">node</span>
@@ -370,10 +379,11 @@
 
 <div class="viewcode-block" id="XmlFullOrdinate.full_borders"><a class="viewcode-back" href="../../serialization.html#serialization.basic.XmlFullOrdinate.full_borders">[документация]</a>    <span class="k">def</span> <span class="nf">full_borders</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">                  get list all of borders</span>
-<span class="sd">              :param node: Contours</span>
-<span class="sd">              :return:</span>
-<span class="sd">              &quot;&quot;&quot;</span>
+<span class="sd">              get list all of borders</span>
+
+<span class="sd">          :param node: Contours</span>
+<span class="sd">          :return: list borders</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># check Contours or EntitySpatial</span>
         <span class="n">res</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
@@ -398,11 +408,7 @@
 <div class="viewcode-block" id="ElementSubParcel"><a class="viewcode-back" href="../../serialization.html#serialization.basic.ElementSubParcel">[документация]</a><span class="k">class</span> <span class="nc">ElementSubParcel</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">       get inforamtion the dict - one SubParcel</span>
-<span class="sd">       {</span>
-<span class="sd">        &#39;defiition&#39;: &#39;чзу1&#39;,</span>
-<span class="sd">        &#39;entity_spatial&#39; : list(),</span>
-<span class="sd">        &#39;type_ordinate&#39; : newparcel | existparcel</span>
-<span class="sd">       }</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">ElementSubParcel</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
@@ -432,6 +438,7 @@
     <span class="k">def</span> <span class="nf">__general_info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">position</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">          словарб общих сведений  части</span>
+
 <span class="sd">        :param position: просто  задать номер</span>
 <span class="sd">        :return:</span>
 <span class="sd">        &quot;&quot;&quot;</span>

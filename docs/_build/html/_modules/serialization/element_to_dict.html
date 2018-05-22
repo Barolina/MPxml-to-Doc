@@ -60,13 +60,14 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        :param node: GeneralCadastralWorks</span>
+<span class="sd">        GeneralCadastralWorks</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">node</span> <span class="o">=</span> <span class="n">node</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">contractor</span> <span class="o">=</span> <span class="kc">None</span>
 
     <span class="k">def</span> <span class="nf">__children_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
+
 <span class="sd">        :param node: Contractor/child</span>
 <span class="sd">        :return: dict (node.tag : node.text)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -133,6 +134,7 @@
 <div class="viewcode-block" id="XmlTitleDict.to_dict"><a class="viewcode-back" href="../../serialization.html#serialization.element_to_dict.XmlTitleDict.to_dict">[документация]</a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">            Данный  метод  возвращает словарь значения для  заполнения  шаблона title.docx</span>
+
 <span class="sd">        :return: dict-&gt;cnfg.Title</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">result</span> <span class="o">=</span> <span class="kc">None</span>
@@ -425,6 +427,7 @@
 <div class="viewcode-block" id="XmlNewParcel.full_area"><a class="viewcode-back" href="../../serialization.html#serialization.element_to_dict.XmlNewParcel.full_area">[документация]</a>    <span class="k">def</span> <span class="nf">full_area</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">            Преобразование площади</span>
+
 <span class="sd">        :param node: Area</span>
 <span class="sd">        :return: valua is the Area</span>
 <span class="sd">        &quot;&quot;&quot;</span>
