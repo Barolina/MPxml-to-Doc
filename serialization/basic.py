@@ -1,4 +1,5 @@
 """
+    Serialization xml ordinate
     Сериализация  узлов xmk файла с коорлинатами
 """
 from utils import config as cnfg
