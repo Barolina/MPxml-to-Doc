@@ -23,7 +23,7 @@ autoclass_content = 'both'
 
 import mock
 
-MOCK_MODULES = ['lxml.etree',]
+MOCK_MODULES = ['lxml.etree', 'logging']
 for mod_name in MOCK_MODULES:
     sys.modules[mod_name] = mock.Mock()
 
