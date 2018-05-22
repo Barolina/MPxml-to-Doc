@@ -75,7 +75,7 @@ class StaticMethod:
         Вспомогательный класс для работы  c node xml
     """
 
-    @staticmethod
+    # @staticmethod
     def type_ordinate(node):
         """
             Определени типа  коорлинат - на  образование или на уточнение
@@ -101,7 +101,7 @@ class StaticMethod:
                 isExist = CNST_EXISTPARCEL if ((isOrdinate is None) or isExistSubParcel) else CNST_NEWPARCEL
         return isExist
 
-    @staticmethod
+    # @staticmethod
     def get_empty_tpl(node):
         """
         :param node: node
@@ -112,7 +112,7 @@ class StaticMethod:
             return META_TPL_ORDINATE[name_type_ord]
         return None
 
-    @staticmethod
+    # @staticmethod
     def merge_array_list(key, array_value):
         """
             преобразоание  списков ключей и массива значений в словарь
@@ -127,7 +127,7 @@ class StaticMethod:
                 res.append(dict(zip(key, _)))
         return res
 
-    @staticmethod
+    # @staticmethod
     def xml_key_to_text(node, path, name_xsd):
         """
             получение знсачения ноды по ключу из справоника
