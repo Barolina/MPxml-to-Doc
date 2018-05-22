@@ -2,14 +2,14 @@
     Serialization xml ordinate
     Сериализация  узлов xmk файла с коорлинатами
 """
-from utils import config as cnfg
-from utils.xsd import value_from_xsd
-import os
-from lxml.etree import _Element
-import logging
-
-# fileConfig('loggers/logging_config.ini')
-logger = logging.getLogger()
+# from utils import config as cnfg
+# from utils.xsd import value_from_xsd
+# import os
+# from lxml.etree import _Element
+# import logging
+#
+# # fileConfig('loggers/logging_config.ini')
+# logger = logging.getLogger()
 
 CNST_NEWPARCEL = 'newparcel'
 CNST_EXISTPARCEL = 'existparcel'
