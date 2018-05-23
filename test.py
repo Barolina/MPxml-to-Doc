@@ -100,5 +100,20 @@ class StaticMethod:
             name_type_ord = StaticMethod.type_ordinate(node)
             return META_TPL_ORDINATE[name_type_ord]
         return None
+		
+	 
+    def merge_array_list(key, array_value):
+        """
+          asdasdasd
+		  
+        :param key: ключи словаря
+        :param array_value: массив значений
+        :return:  [{ 'id': 1, 'name': 'ЗУ1'}, { 'id': 1, 'name': 'ЗУ1'},]
+        """
+        res = list()
+        if key and array_value:
+            for _ in array_value:
+                res.append(dict(zip(key, _)))
+        return res
 
     
