@@ -99,9 +99,6 @@ class StaticMethod:
 		получение знсачения ноды по ключу из справоника node  узел - где ищем path парсер - что(как) ищем name_xsd наименование сравочнка text
 		
         """
-        if not name_xsd:
-            logging.error(f"""Не передан справочник {name_xsd}""")
-            return ''
         _list = node.xpath(path)
         res = ''
         if _list:
@@ -148,7 +145,7 @@ class Ordinatre(list):
                 res.append(
                     ['', number, self.__round_number(_attrib, 'X'), self.__round_number(_attrib, 'Y'),
                      self.__round_number(_attrib, 'DeltaGeopoint')])
-                logging.info(f""" del {_attrib}""")
+
 
                 del _attrib
         return res
@@ -179,7 +176,7 @@ class Ordinatre(list):
 
                 res.append(['', number, xOld, yOld, xNew, yNew, delata])
         else:
-            logging.error(f"""Попытка получить  координаты, но они отсутсвуют по данному узлу {self.node}""")
+            logging.error('')
         return res
 
     def xml_to_list(self):
@@ -224,7 +221,7 @@ class EntitySpatial(list):
                         _empty = StaticMethod.get_empty_tpl(_)
                         if _empty:
                             result.append(_empty+['yes'])
-                    logging.info(f""" del {ord}""")
+
                     del ord
             # ToDo очищать пока не будет  надо еще считать Borders
         return result
@@ -310,7 +307,7 @@ class XmlFullOrdinate(list):
         self.definition = definition
 
     def __del__(self):
-        logging.info(f""" del {self.node}""")
+
         """ Контуры содержать ProvidingPassCadastralNumbers которые необходимы потом для разбора """
         if self.node is not None and self.node.tag != self.CNST_NAME_CONTOURS:
             self.node.clear()
@@ -329,14 +326,14 @@ class XmlFullOrdinate(list):
                         res.append(_defintion + StaticMethod.get_empty_tpl(_entityspatial[0]))
                         entity = EntitySpatial(_entityspatial[0])
                         res.extend(entity.xml_to_list())
-                        logging.info(f""" del {entity}""")
+
                         del entity
         else:  # список коорлинат EntitySpatial
             entity_spatial = self.node
             if len(entity_spatial) > 0:
                 entity = EntitySpatial(entity_spatial)
                 res = entity.xml_to_list()
-                logging.info(f""" del {entity}""")
+
                 del entity
                   # ToDo очищать пок не будем на получить Borders
         return res
@@ -386,7 +383,7 @@ class ElementSubParcel:
         self.type_ord = None
 
     def __del__(self):
-       logging.info(f""" del {self.node}""")
+
        self.node.clear()
 
     def __defintion(self):

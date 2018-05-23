@@ -133,9 +133,6 @@
 <span class="sd">		получение знсачения ноды по ключу из справоника node  узел - где ищем path парсер - что(как) ищем name_xsd наименование сравочнка text</span>
 <span class="sd">		</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">name_xsd</span><span class="p">:</span>
-            <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;&quot;&quot;Не передан справочник </span><span class="si">{name_xsd}</span><span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
-            <span class="k">return</span> <span class="s1">&#39;&#39;</span>
         <span class="n">_list</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
         <span class="n">res</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
         <span class="k">if</span> <span class="n">_list</span><span class="p">:</span>
@@ -182,7 +179,7 @@
                 <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
                     <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">number</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__round_number</span><span class="p">(</span><span class="n">_attrib</span><span class="p">,</span> <span class="s1">&#39;X&#39;</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">__round_number</span><span class="p">(</span><span class="n">_attrib</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">),</span>
                      <span class="bp">self</span><span class="o">.</span><span class="n">__round_number</span><span class="p">(</span><span class="n">_attrib</span><span class="p">,</span> <span class="s1">&#39;DeltaGeopoint&#39;</span><span class="p">)])</span>
-                <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;&quot;&quot; del </span><span class="si">{_attrib}</span><span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+
 
                 <span class="k">del</span> <span class="n">_attrib</span>
         <span class="k">return</span> <span class="n">res</span></div>
@@ -213,7 +210,7 @@
 
                 <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">number</span><span class="p">,</span> <span class="n">xOld</span><span class="p">,</span> <span class="n">yOld</span><span class="p">,</span> <span class="n">xNew</span><span class="p">,</span> <span class="n">yNew</span><span class="p">,</span> <span class="n">delata</span><span class="p">])</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;&quot;&quot;Попытка получить  координаты, но они отсутсвуют по данному узлу </span><span class="si">{self.node}</span><span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">res</span></div>
 
 <div class="viewcode-block" id="Ordinatre.xml_to_list"><a class="viewcode-back" href="../../serialization.html#serialization.basic.Ordinatre.xml_to_list">[документация]</a>    <span class="k">def</span> <span class="nf">xml_to_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -258,7 +255,7 @@
                         <span class="n">_empty</span> <span class="o">=</span> <span class="n">StaticMethod</span><span class="o">.</span><span class="n">get_empty_tpl</span><span class="p">(</span><span class="n">_</span><span class="p">)</span>
                         <span class="k">if</span> <span class="n">_empty</span><span class="p">:</span>
                             <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_empty</span><span class="o">+</span><span class="p">[</span><span class="s1">&#39;yes&#39;</span><span class="p">])</span>
-                    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;&quot;&quot; del </span><span class="si">{ord}</span><span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+
                     <span class="k">del</span> <span class="nb">ord</span>
             <span class="c1"># ToDo очищать пока не будет  надо еще считать Borders</span>
         <span class="k">return</span> <span class="n">result</span></div></div>
@@ -344,7 +341,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">definition</span> <span class="o">=</span> <span class="n">definition</span>
 
     <span class="k">def</span> <span class="nf">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;&quot;&quot; del </span><span class="si">{self.node}</span><span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+
         <span class="sd">&quot;&quot;&quot; Контуры содержать ProvidingPassCadastralNumbers которые необходимы потом для разбора &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">tag</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">CNST_NAME_CONTOURS</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
@@ -363,14 +360,14 @@
                         <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_defintion</span> <span class="o">+</span> <span class="n">StaticMethod</span><span class="o">.</span><span class="n">get_empty_tpl</span><span class="p">(</span><span class="n">_entityspatial</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
                         <span class="n">entity</span> <span class="o">=</span> <span class="n">EntitySpatial</span><span class="p">(</span><span class="n">_entityspatial</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
                         <span class="n">res</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">entity</span><span class="o">.</span><span class="n">xml_to_list</span><span class="p">())</span>
-                        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;&quot;&quot; del </span><span class="si">{entity}</span><span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+
                         <span class="k">del</span> <span class="n">entity</span>
         <span class="k">else</span><span class="p">:</span>  <span class="c1"># список коорлинат EntitySpatial</span>
             <span class="n">entity_spatial</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span>
             <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">entity_spatial</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
                 <span class="n">entity</span> <span class="o">=</span> <span class="n">EntitySpatial</span><span class="p">(</span><span class="n">entity_spatial</span><span class="p">)</span>
                 <span class="n">res</span> <span class="o">=</span> <span class="n">entity</span><span class="o">.</span><span class="n">xml_to_list</span><span class="p">()</span>
-                <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;&quot;&quot; del </span><span class="si">{entity}</span><span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+
                 <span class="k">del</span> <span class="n">entity</span>
                   <span class="c1"># ToDo очищать пок не будем на получить Borders</span>
         <span class="k">return</span> <span class="n">res</span></div>
@@ -420,7 +417,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">type_ord</span> <span class="o">=</span> <span class="kc">None</span>
 
     <span class="k">def</span> <span class="nf">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-       <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;&quot;&quot; del </span><span class="si">{self.node}</span><span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+
        <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">__defintion</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
