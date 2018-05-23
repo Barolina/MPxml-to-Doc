@@ -1,18 +1,6 @@
 serialization package
 =====================
 
-Submodules
-----------
-
-serialization.basic module
---------------------------
-
-.. automodule:: serialization.basic
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-
 Module contents
 ---------------
 

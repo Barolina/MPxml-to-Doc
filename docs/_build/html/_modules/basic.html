@@ -6,19 +6,19 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>serialization.basic &#8212; Документация Mp_to_Word 1</title>
-    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" src="../../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../_static/translations.js"></script>
+    <title>basic &#8212; Документация Mp_to_Word 1</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="index" title="Алфавитный указатель" href="../../genindex.html" />
-    <link rel="search" title="Поиск" href="../../search.html" />
+    <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
+    <link rel="search" title="Поиск" href="../search.html" />
    
-  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
@@ -31,7 +31,7 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <h1>Исходный код serialization.basic</h1><div class="highlight"><pre>
+  <h1>Исходный код basic</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">Serialization xml element</span>
 <span class="sd">Сериализация  узлов xmk файла с коорлинатами	</span>
@@ -48,7 +48,7 @@
 <span class="p">}</span>
 
 
-<div class="viewcode-block" id="XMLElemenBase"><a class="viewcode-back" href="../../serialization.html#serialization.basic.XMLElemenBase">[документация]</a><span class="k">class</span> <span class="nc">XMLElemenBase</span><span class="p">:</span>
+<div class="viewcode-block" id="XMLElemenBase"><a class="viewcode-back" href="../basic.html#basic.XMLElemenBase">[документация]</a><span class="k">class</span> <span class="nc">XMLElemenBase</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">	Базовый класс - определяющий структуру наследников</span>
 <span class="sd">	</span>
@@ -58,7 +58,7 @@
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">node</span> <span class="o">=</span> <span class="n">node</span>
 
-<div class="viewcode-block" id="XMLElemenBase.to_dict"><a class="viewcode-back" href="../../serialization.html#serialization.basic.XMLElemenBase.to_dict">[документация]</a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="XMLElemenBase.to_dict"><a class="viewcode-back" href="../basic.html#basic.XMLElemenBase.to_dict">[документация]</a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">		Return json - object, based on the dictionary in config</span>
 <span class="sd">		(данные метод реализован у всех наследников, необходимых для render шааболонов)</span>
@@ -68,12 +68,12 @@
         <span class="k">pass</span></div></div>
 
 
-<div class="viewcode-block" id="StaticMethod"><a class="viewcode-back" href="../../serialization.html#serialization.basic.StaticMethod">[документация]</a><span class="k">class</span> <span class="nc">StaticMethod</span><span class="p">:</span>
+<div class="viewcode-block" id="StaticMethod"><a class="viewcode-back" href="../basic.html#basic.StaticMethod">[документация]</a><span class="k">class</span> <span class="nc">StaticMethod</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Вспомогательный класс для работы  c node xml</span>
 <span class="sd">		</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-<div class="viewcode-block" id="StaticMethod.type_ordinate"><a class="viewcode-back" href="../../serialization.html#serialization.basic.StaticMethod.type_ordinate">[документация]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="StaticMethod.type_ordinate"><a class="viewcode-back" href="../basic.html#basic.StaticMethod.type_ordinate">[документация]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">type_ordinate</span><span class="p">(</span><span class="n">node</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Определени типа  коорлинат - на  образование или на уточнение</span>
@@ -99,7 +99,7 @@
                 <span class="n">isExist</span> <span class="o">=</span> <span class="n">CNST_EXISTPARCEL</span> <span class="k">if</span> <span class="p">((</span><span class="n">isOrdinate</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">or</span> <span class="n">isExistSubParcel</span><span class="p">)</span> <span class="k">else</span> <span class="n">CNST_NEWPARCEL</span>
         <span class="k">return</span> <span class="n">isExist</span></div>
 
-<div class="viewcode-block" id="StaticMethod.get_empty_tpl"><a class="viewcode-back" href="../../serialization.html#serialization.basic.StaticMethod.get_empty_tpl">[документация]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="StaticMethod.get_empty_tpl"><a class="viewcode-back" href="../basic.html#basic.StaticMethod.get_empty_tpl">[документация]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">get_empty_tpl</span><span class="p">(</span><span class="n">node</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">		Get empty row	</span>
@@ -112,7 +112,7 @@
             <span class="k">return</span> <span class="n">META_TPL_ORDINATE</span><span class="p">[</span><span class="n">name_type_ord</span><span class="p">]</span>
         <span class="k">return</span> <span class="kc">None</span></div>
 
-<div class="viewcode-block" id="StaticMethod.merge_array_list"><a class="viewcode-back" href="../../serialization.html#serialization.basic.StaticMethod.merge_array_list">[документация]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="StaticMethod.merge_array_list"><a class="viewcode-back" href="../basic.html#basic.StaticMethod.merge_array_list">[документация]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">merge_array_list</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">array_value</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        преобразоание  списков ключей и массива значений в словарь</span>
@@ -127,7 +127,7 @@
                 <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">_</span><span class="p">)))</span>
         <span class="k">return</span> <span class="n">res</span></div>
 
-<div class="viewcode-block" id="StaticMethod.xml_key_to_text"><a class="viewcode-back" href="../../serialization.html#serialization.basic.StaticMethod.xml_key_to_text">[документация]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="StaticMethod.xml_key_to_text"><a class="viewcode-back" href="../basic.html#basic.StaticMethod.xml_key_to_text">[документация]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">xml_key_to_text</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">name_xsd</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">		получение знсачения ноды по ключу из справоника node  узел - где ищем path парсер - что(как) ищем name_xsd наименование сравочнка text</span>
@@ -145,7 +145,7 @@
         <span class="k">return</span> <span class="n">res</span></div></div>
 
 
-<div class="viewcode-block" id="Ordinatre"><a class="viewcode-back" href="../../serialization.html#serialization.basic.Ordinatre">[документация]</a><span class="k">class</span> <span class="nc">Ordinatre</span><span class="p">(</span><span class="nb">list</span><span class="p">):</span>
+<div class="viewcode-block" id="Ordinatre"><a class="viewcode-back" href="../basic.html#basic.Ordinatre">[документация]</a><span class="k">class</span> <span class="nc">Ordinatre</span><span class="p">(</span><span class="nb">list</span><span class="p">):</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="n">type_ordinate_ord</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -167,7 +167,7 @@
             <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;-&#39;</span>
         <span class="k">return</span> <span class="n">x</span>
 
-<div class="viewcode-block" id="Ordinatre.xml_new_ordinate_to_list"><a class="viewcode-back" href="../../serialization.html#serialization.basic.Ordinatre.xml_new_ordinate_to_list">[документация]</a>    <span class="k">def</span> <span class="nf">xml_new_ordinate_to_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Ordinatre.xml_new_ordinate_to_list"><a class="viewcode-back" href="../basic.html#basic.Ordinatre.xml_new_ordinate_to_list">[документация]</a>    <span class="k">def</span> <span class="nf">xml_new_ordinate_to_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Список координат внутренного контура на образование</span>
 <span class="sd">		</span>
@@ -187,7 +187,7 @@
                 <span class="k">del</span> <span class="n">_attrib</span>
         <span class="k">return</span> <span class="n">res</span></div>
 
-<div class="viewcode-block" id="Ordinatre.xml_exist_ordinate_to_list"><a class="viewcode-back" href="../../serialization.html#serialization.basic.Ordinatre.xml_exist_ordinate_to_list">[документация]</a>    <span class="k">def</span> <span class="nf">xml_exist_ordinate_to_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Ordinatre.xml_exist_ordinate_to_list"><a class="viewcode-back" href="../basic.html#basic.Ordinatre.xml_exist_ordinate_to_list">[документация]</a>    <span class="k">def</span> <span class="nf">xml_exist_ordinate_to_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Список координат внутреннего конутра на уточнение</span>
 <span class="sd">		</span>
@@ -216,13 +216,13 @@
             <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;&quot;&quot;Попытка получить  координаты, но они отсутсвуют по данному узлу </span><span class="si">{self.node}</span><span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">res</span></div>
 
-<div class="viewcode-block" id="Ordinatre.xml_to_list"><a class="viewcode-back" href="../../serialization.html#serialization.basic.Ordinatre.xml_to_list">[документация]</a>    <span class="k">def</span> <span class="nf">xml_to_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Ordinatre.xml_to_list"><a class="viewcode-back" href="../basic.html#basic.Ordinatre.xml_to_list">[документация]</a>    <span class="k">def</span> <span class="nf">xml_to_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">type_ordinate_ord</span> <span class="o">==</span> <span class="n">CNST_EXISTPARCEL</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">xml_exist_ordinate_to_list</span><span class="p">()</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">xml_new_ordinate_to_list</span><span class="p">()</span></div></div>
 
 
-<div class="viewcode-block" id="EntitySpatial"><a class="viewcode-back" href="../../serialization.html#serialization.basic.EntitySpatial">[документация]</a><span class="k">class</span> <span class="nc">EntitySpatial</span><span class="p">(</span><span class="nb">list</span><span class="p">):</span>
+<div class="viewcode-block" id="EntitySpatial"><a class="viewcode-back" href="../basic.html#basic.EntitySpatial">[документация]</a><span class="k">class</span> <span class="nc">EntitySpatial</span><span class="p">(</span><span class="nb">list</span><span class="p">):</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -238,7 +238,7 @@
     <span class="c1"># def __del__(self):</span>
     <span class="c1">#     self.node.clear()</span>
 
-<div class="viewcode-block" id="EntitySpatial.xml_to_list"><a class="viewcode-back" href="../../serialization.html#serialization.basic.EntitySpatial.xml_to_list">[документация]</a>    <span class="k">def</span> <span class="nf">xml_to_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="EntitySpatial.xml_to_list"><a class="viewcode-back" href="../basic.html#basic.EntitySpatial.xml_to_list">[документация]</a>    <span class="k">def</span> <span class="nf">xml_to_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">		xmml element to list</span>
 <span class="sd">		</span>
@@ -264,7 +264,7 @@
         <span class="k">return</span> <span class="n">result</span></div></div>
 
 
-<div class="viewcode-block" id="Border"><a class="viewcode-back" href="../../serialization.html#serialization.basic.Border">[документация]</a><span class="k">class</span> <span class="nc">Border</span><span class="p">(</span><span class="nb">list</span><span class="p">):</span>
+<div class="viewcode-block" id="Border"><a class="viewcode-back" href="../basic.html#basic.Border">[документация]</a><span class="k">class</span> <span class="nc">Border</span><span class="p">(</span><span class="nb">list</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get a list of  border the EntitySpatial</span>
 <span class="sd">		</span>
@@ -315,7 +315,7 @@
         <span class="n">border</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">res</span>
 
-<div class="viewcode-block" id="Border.xml_to_list"><a class="viewcode-back" href="../../serialization.html#serialization.basic.Border.xml_to_list">[документация]</a>    <span class="k">def</span> <span class="nf">xml_to_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Border.xml_to_list"><a class="viewcode-back" href="../basic.html#basic.Border.xml_to_list">[документация]</a>    <span class="k">def</span> <span class="nf">xml_to_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">pathEntitySpatial1</span> <span class="o">=</span> <span class="s1">&#39;child::SpatialElement&#39;</span>
         <span class="n">countSpatialElement</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="n">pathEntitySpatial1</span><span class="p">))</span>
         <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
@@ -330,7 +330,7 @@
         <span class="k">return</span> <span class="n">res</span></div></div>
 
 
-<div class="viewcode-block" id="XmlFullOrdinate"><a class="viewcode-back" href="../../serialization.html#serialization.basic.XmlFullOrdinate">[документация]</a><span class="k">class</span> <span class="nc">XmlFullOrdinate</span><span class="p">(</span><span class="nb">list</span><span class="p">):</span>
+<div class="viewcode-block" id="XmlFullOrdinate"><a class="viewcode-back" href="../basic.html#basic.XmlFullOrdinate">[документация]</a><span class="k">class</span> <span class="nc">XmlFullOrdinate</span><span class="p">(</span><span class="nb">list</span><span class="p">):</span>
     <span class="n">CNST_NAME_CONTOURS</span> <span class="o">=</span> <span class="s1">&#39;Contours&#39;</span>
     <span class="n">CNST_NAME_ENTITY_SPATIAL</span> <span class="o">=</span> <span class="s1">&#39;EntitySpatial&#39;</span>
 
@@ -349,7 +349,7 @@
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">tag</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">CNST_NAME_CONTOURS</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
 
-<div class="viewcode-block" id="XmlFullOrdinate.full_ordinate"><a class="viewcode-back" href="../../serialization.html#serialization.basic.XmlFullOrdinate.full_ordinate">[документация]</a>    <span class="k">def</span> <span class="nf">full_ordinate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="XmlFullOrdinate.full_ordinate"><a class="viewcode-back" href="../basic.html#basic.XmlFullOrdinate.full_ordinate">[документация]</a>    <span class="k">def</span> <span class="nf">full_ordinate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">res</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">tag</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">CNST_NAME_CONTOURS</span><span class="p">:</span>
             <span class="n">contours</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;child::*&#39;</span><span class="p">)</span>
@@ -375,7 +375,7 @@
                   <span class="c1"># ToDo очищать пок не будем на получить Borders</span>
         <span class="k">return</span> <span class="n">res</span></div>
 
-<div class="viewcode-block" id="XmlFullOrdinate.full_borders"><a class="viewcode-back" href="../../serialization.html#serialization.basic.XmlFullOrdinate.full_borders">[документация]</a>    <span class="k">def</span> <span class="nf">full_borders</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="XmlFullOrdinate.full_borders"><a class="viewcode-back" href="../basic.html#basic.XmlFullOrdinate.full_borders">[документация]</a>    <span class="k">def</span> <span class="nf">full_borders</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">		get list all of borders</span>
 <span class="sd">		</span>
@@ -403,7 +403,7 @@
         <span class="k">return</span> <span class="n">res</span></div></div>
 
 
-<div class="viewcode-block" id="ElementSubParcel"><a class="viewcode-back" href="../../serialization.html#serialization.basic.ElementSubParcel">[документация]</a><span class="k">class</span> <span class="nc">ElementSubParcel</span><span class="p">:</span>
+<div class="viewcode-block" id="ElementSubParcel"><a class="viewcode-back" href="../basic.html#basic.ElementSubParcel">[документация]</a><span class="k">class</span> <span class="nc">ElementSubParcel</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">	get inforamtion the dict - one SubParcel</span>
 <span class="sd">	</span>
@@ -453,7 +453,7 @@
                                                     <span class="n">cnfg</span><span class="o">.</span><span class="n">SUBPARCEL_GENERAL</span><span class="o">.</span><span class="n">dict</span><span class="p">[</span><span class="s1">&#39;encumbrace&#39;</span><span class="p">]))</span>
         <span class="k">return</span> <span class="n">res</span>
 
-<div class="viewcode-block" id="ElementSubParcel.xml_new_dict"><a class="viewcode-back" href="../../serialization.html#serialization.basic.ElementSubParcel.xml_new_dict">[документация]</a>    <span class="k">def</span> <span class="nf">xml_new_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="ElementSubParcel.xml_new_dict"><a class="viewcode-back" href="../basic.html#basic.ElementSubParcel.xml_new_dict">[документация]</a>    <span class="k">def</span> <span class="nf">xml_new_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">try</span><span class="p">:</span>
            <span class="n">_ent</span> <span class="o">=</span> <span class="n">StaticMethod</span><span class="o">.</span><span class="n">merge_array_list</span><span class="p">(</span><span class="n">cnfg</span><span class="o">.</span><span class="n">SUBPARCEL_ENTITY_SPATIAL</span><span class="o">.</span><span class="n">attr</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__entity_spatial</span><span class="p">())</span>
            <span class="n">res</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
@@ -465,7 +465,7 @@
         <span class="k">except</span><span class="p">:</span>
             <span class="k">return</span> <span class="p">[]</span></div>
 
-<div class="viewcode-block" id="ElementSubParcel.xml_ext_dict"><a class="viewcode-back" href="../../serialization.html#serialization.basic.ElementSubParcel.xml_ext_dict">[документация]</a>    <span class="k">def</span> <span class="nf">xml_ext_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="ElementSubParcel.xml_ext_dict"><a class="viewcode-back" href="../basic.html#basic.ElementSubParcel.xml_ext_dict">[документация]</a>    <span class="k">def</span> <span class="nf">xml_ext_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">_ent</span> <span class="o">=</span> <span class="n">StaticMethod</span><span class="o">.</span><span class="n">merge_array_list</span><span class="p">(</span><span class="n">cnfg</span><span class="o">.</span><span class="n">SUBPARCEL_ENTITY_SPATIAL_EXIST</span><span class="o">.</span><span class="n">attr</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__entity_spatial</span><span class="p">())</span>
             <span class="n">res</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
@@ -475,7 +475,7 @@
         <span class="k">except</span><span class="p">:</span>
             <span class="k">return</span> <span class="p">[]</span></div>
 
-<div class="viewcode-block" id="ElementSubParcel.xml_general_dict"><a class="viewcode-back" href="../../serialization.html#serialization.basic.ElementSubParcel.xml_general_dict">[документация]</a>    <span class="k">def</span> <span class="nf">xml_general_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">position</span><span class="p">):</span>
+<div class="viewcode-block" id="ElementSubParcel.xml_general_dict"><a class="viewcode-back" href="../basic.html#basic.ElementSubParcel.xml_general_dict">[документация]</a>    <span class="k">def</span> <span class="nf">xml_general_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">position</span><span class="p">):</span>
         <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">cnfg</span><span class="o">.</span><span class="n">SUBPARCEL_GENERAL</span><span class="o">.</span><span class="n">attr</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__general_info</span><span class="p">(</span><span class="n">position</span><span class="p">)))</span></div></div>
 
 
@@ -488,8 +488,8 @@
         <div class="sphinxsidebarwrapper"><div class="relations">
 <h3>Related Topics</h3>
 <ul>
-  <li><a href="../../index.html">Documentation overview</a><ul>
-  <li><a href="../index.html">Код модуля</a><ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Код модуля</a><ul>
   </ul></li>
   </ul></li>
 </ul>
@@ -497,7 +497,7 @@
 <div id="searchbox" style="display: none" role="search">
   <h3>Быстрый поиск</h3>
     <div class="searchformwrapper">
-    <form class="search" action="../../search.html" method="get">
+    <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
       <input type="submit" value="Искать" />
       <input type="hidden" name="check_keywords" value="yes" />

@@ -100,8 +100,7 @@ class StaticMethod:
             name_type_ord = StaticMethod.type_ordinate(node)
             return META_TPL_ORDINATE[name_type_ord]
         return None
-		
-	 
+
     @staticmethod
     def merge_array_list(key, array_value):
         """
@@ -117,4 +116,19 @@ class StaticMethod:
                 res.append(dict(zip(key, _)))
         return res
 
-    
+    @staticmethod
+    def xml_key_to_text(node, path, name_xsd):
+        """
+        получение знсачения ноды по ключу из справоника node  узел - где ищем path парсер - что(как) ищем name_xsd наименование сравочнка text
+
+        """
+        if not name_xsd:
+            logging.error(f"""Не передан справочник {name_xsd}""")
+            return ''
+        _list = node.xpath(path)
+        res = ''
+        if _list:
+            path = os.path.join(cnfg.PATH_XSD, name_xsd)
+            res = value_from_xsd(path, _list[0])
+            node.clear()
+        return res
