@@ -119,8 +119,11 @@ class StaticMethod:
     @staticmethod
     def xml_key_to_text(node, path, name_xsd):
         """
-        получение знсачения ноды по ключу из справоника node  узел - где ищем path парсер - что(как) ищем name_xsd наименование сравочнка text
-
+            получение знсачения ноды по ключу из справоника node  узел - где ищем path парсер - что(как) ищем name_xsd наименование сравочнка text
+        :param node: узел
+        :param path: как ищем
+        :param name_xsd:  xsd file
+        :return: value
         """
         if not name_xsd:
             logging.error(f"""Не передан справочник {name_xsd}""")
