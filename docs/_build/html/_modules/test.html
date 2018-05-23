@@ -148,26 +148,6 @@
         <span class="k">if</span> <span class="n">key</span> <span class="ow">and</span> <span class="n">array_value</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">array_value</span><span class="p">:</span>
                 <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">_</span><span class="p">)))</span>
-        <span class="k">return</span> <span class="n">res</span></div>
-
-<div class="viewcode-block" id="StaticMethod.xml_key_to_text"><a class="viewcode-back" href="../test.html#test.StaticMethod.xml_key_to_text">[документация]</a>    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">xml_key_to_text</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">name_xsd</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">            получение знсачения ноды по ключу из справоника node  узел - где ищем path парсер - что(как) ищем name_xsd наименование сравочнка text</span>
-<span class="sd">        :param node: узел</span>
-<span class="sd">        :param path: как ищем</span>
-<span class="sd">        :param name_xsd:  xsd file</span>
-<span class="sd">        :return: value</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">name_xsd</span><span class="p">:</span>
-            <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;&quot;&quot;Не передан справочник </span><span class="si">{name_xsd}</span><span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
-            <span class="k">return</span> <span class="s1">&#39;&#39;</span>
-        <span class="n">_list</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-        <span class="n">res</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
-        <span class="k">if</span> <span class="n">_list</span><span class="p">:</span>
-            <span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cnfg</span><span class="o">.</span><span class="n">PATH_XSD</span><span class="p">,</span> <span class="n">name_xsd</span><span class="p">)</span>
-            <span class="n">res</span> <span class="o">=</span> <span class="n">value_from_xsd</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">_list</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-            <span class="n">node</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">res</span></div></div>
 </pre></div>
 
