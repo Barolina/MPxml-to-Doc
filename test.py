@@ -102,10 +102,11 @@ class StaticMethod:
         return None
 		
 	 
+    @staticmethod
     def merge_array_list(key, array_value):
         """
-          asdasdasd
-		  
+            преобразоание  списков ключей и массива значений в словарь
+			
         :param key: ключи словаря
         :param array_value: массив значений
         :return:  [{ 'id': 1, 'name': 'ЗУ1'}, { 'id': 1, 'name': 'ЗУ1'},]
