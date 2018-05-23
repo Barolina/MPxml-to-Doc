@@ -127,7 +127,7 @@ class StaticMethod:
         :return: value
         """
         if not name_xsd:
-            logging.error(f"""Не передан справочник {name_xsd}""")
+            logging.error("Не передан справочник")
             return ''
         _list = node.xpath(path)
         res = ''
