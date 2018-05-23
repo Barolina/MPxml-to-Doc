@@ -6,3 +6,4 @@ testsphinx
 
    test
    utils
+   xsd

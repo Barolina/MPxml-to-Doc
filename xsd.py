@@ -1,10 +1,8 @@
 """
-
+Unit reading xsd
 Модуль позволяющтй из xsd файла извлечь value по key
 
 """
-from lxml import etree
-
 
 class Schema:
     SCHEMA_SPACE = "{http://www.w3.org/2001/XMLSchema}"

@@ -17,6 +17,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Алфавитный указатель" href="genindex.html" />
     <link rel="search" title="Поиск" href="search.html" />
+    <link rel="next" title="xsd module" href="xsd.html" />
     <link rel="prev" title="test module" href="test.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
@@ -571,91 +572,6 @@
 </dd></dl>
 
 </div>
-<div class="section" id="module-utils.xsd">
-<span id="utils-xsd-module"></span><h2>utils.xsd module<a class="headerlink" href="#module-utils.xsd" title="Ссылка на этот заголовок">¶</a></h2>
-<p>Модуль позволяющтй из xsd файла извлечь value по key</p>
-<dl class="class">
-<dt id="utils.xsd.Schema">
-<em class="property">class </em><code class="descclassname">utils.xsd.</code><code class="descname">Schema</code><span class="sig-paren">(</span><em>schemafile</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils/xsd.html#Schema"><span class="viewcode-link">[исходный код]</span></a><a class="headerlink" href="#utils.xsd.Schema" title="Ссылка на это определение">¶</a></dt>
-<dd><blockquote>
-<div>Базовые классы: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(в Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></div></blockquote>
-<dl class="attribute">
-<dt id="utils.xsd.Schema.SCHEMA_SPACE">
-<code class="descname">SCHEMA_SPACE</code><em class="property"> = '{http://www.w3.org/2001/XMLSchema}'</em><a class="headerlink" href="#utils.xsd.Schema.SCHEMA_SPACE" title="Ссылка на это определение">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="utils.xsd.Schema.find">
-<code class="descname">find</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils/xsd.html#Schema.find"><span class="viewcode-link">[исходный код]</span></a><a class="headerlink" href="#utils.xsd.Schema.find" title="Ссылка на это определение">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="utils.xsd.Schema.findall">
-<code class="descname">findall</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils/xsd.html#Schema.findall"><span class="viewcode-link">[исходный код]</span></a><a class="headerlink" href="#utils.xsd.Schema.findall" title="Ссылка на это определение">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="utils.xsd.Schema.get_Types">
-<code class="descname">get_Types</code><span class="sig-paren">(</span><em>t_name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils/xsd.html#Schema.get_Types"><span class="viewcode-link">[исходный код]</span></a><a class="headerlink" href="#utils.xsd.Schema.get_Types" title="Ссылка на это определение">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="utils.xsd.Schema.get_complexTypes">
-<code class="descname">get_complexTypes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils/xsd.html#Schema.get_complexTypes"><span class="viewcode-link">[исходный код]</span></a><a class="headerlink" href="#utils.xsd.Schema.get_complexTypes" title="Ссылка на это определение">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="utils.xsd.Schema.get_element_attributes">
-<code class="descname">get_element_attributes</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils/xsd.html#Schema.get_element_attributes"><span class="viewcode-link">[исходный код]</span></a><a class="headerlink" href="#utils.xsd.Schema.get_element_attributes" title="Ссылка на это определение">¶</a></dt>
-<dd><blockquote>
-<div>Получить значение аттрибута</div></blockquote>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Параметры:</th><td class="field-body"><strong>name</strong> – xs:enumeration</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Результат:</th><td class="field-body">&lt;xsd:element&gt; text &lt;/xsd:element&gt;</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="utils.xsd.Schema.get_simpleTypes">
-<code class="descname">get_simpleTypes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils/xsd.html#Schema.get_simpleTypes"><span class="viewcode-link">[исходный код]</span></a><a class="headerlink" href="#utils.xsd.Schema.get_simpleTypes" title="Ссылка на это определение">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="utils.xsd.Schema.names_of">
-<code class="descname">names_of</code><span class="sig-paren">(</span><em>nodes</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils/xsd.html#Schema.names_of"><span class="viewcode-link">[исходный код]</span></a><a class="headerlink" href="#utils.xsd.Schema.names_of" title="Ссылка на это определение">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="function">
-<dt id="utils.xsd.value_from_xsd">
-<code class="descclassname">utils.xsd.</code><code class="descname">value_from_xsd</code><span class="sig-paren">(</span><em>path</em>, <em>key</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils/xsd.html#value_from_xsd"><span class="viewcode-link">[исходный код]</span></a><a class="headerlink" href="#utils.xsd.value_from_xsd" title="Ссылка на это определение">¶</a></dt>
-<dd><blockquote>
-<div>Получить значение ключа из xsd</div></blockquote>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Параметры:</th><td class="field-body"><ul class="first simple">
-<li><strong>path</strong> – путь к xsd</li>
-<li><strong>key</strong> – key</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Результат:</th><td class="field-body"><p class="first last">value</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-</div>
 <div class="section" id="module-utils">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-utils" title="Ссылка на этот заголовок">¶</a></h2>
 </div>
@@ -672,7 +588,6 @@
 <li><a class="reference internal" href="#">utils package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
 <li><a class="reference internal" href="#module-utils.config">utils.config module</a></li>
-<li><a class="reference internal" href="#module-utils.xsd">utils.xsd module</a></li>
 <li><a class="reference internal" href="#module-utils">Module contents</a></li>
 </ul>
 </li>
@@ -683,6 +598,7 @@
   <li><a href="index.html">Documentation overview</a><ul>
   <li><a href="modules.html">testsphinx</a><ul>
       <li>Previous: <a href="test.html" title="предыдущая глава">test module</a></li>
+      <li>Next: <a href="xsd.html" title="следующая глава">xsd module</a></li>
   </ul></li>
   </ul></li>
 </ul>
