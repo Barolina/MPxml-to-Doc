@@ -1,9 +1,8 @@
-test
-====
+testsphinx
+==========
 
 .. toctree::
    :maxdepth: 4
 
-   basic
    test
    utils

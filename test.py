@@ -26,18 +26,6 @@ META_TPL_ORDINATE = {  # шаблон для пребразвоания в во�
     CNST_UNDEFINE: '',
 }
 
-"""
-    Serialization xml ordinate
-    Сериализация  узлов xmk файла с коорлинатами
-"""
-# from utils import config as cnfg
-# from utils.xsd import value_from_xsd
-# import os
-# from lxml.etree import _Element
-# import logging
-#
-# # fileConfig('loggers/logging_config.ini')
-# logger = logging.getLogger()
 
 CNST_NEWPARCEL = 'newparcel'
 CNST_EXISTPARCEL = 'existparcel'
@@ -101,9 +89,10 @@ class StaticMethod:
                 isExist = CNST_EXISTPARCEL if ((isOrdinate is None) or isExistSubParcel) else CNST_NEWPARCEL
         return isExist
 
-    @staticmethod
     def get_empty_tpl(node):
         """
+		sfsdf
+		
         :param node: node
         :return: Return empty tpl rows  for word, depends on Type Ordinate
         """
@@ -112,38 +101,4 @@ class StaticMethod:
             return META_TPL_ORDINATE[name_type_ord]
         return None
 
-    @staticmethod
-    def merge_array_list(key, array_value):
-        """
-            werqwerwer
-
-        :param key: werqwer
-        :param array_value: werqwer
-        :return:  [{ 'id': 1, 'name': 'ЗУ1'}, { 'id': 1, 'name': 'ЗУ1'},]
-        """
-        res = list()
-        if key and array_value:
-            for _ in array_value:
-                res.append(dict(zip(key, _)))
-        return res
-
-    @staticmethod
-    def xml_key_to_text(node, path, name_xsd):
-        """
-            werwer
-
-        :param node:  werqwer
-        :param path: werqwer
-        :param name_xsd: нwerqwer
-        :return: text
-        """
-        if not name_xsd:
-            logging.error(f"""Не передан справочник {name_xsd}""")
-            return ''
-        _list = node.xpath(path)
-        res = ''
-        if _list:
-            path = os.path.join(cnfg.PATH_XSD, name_xsd)
-            res = value_from_xsd(path, _list[0])
-            node.clear()
-        return res
+    
