@@ -3,12 +3,12 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Mp_to_Word's documentation!
+Mp_to_Word's преобразование межевого плана (xml) в печатный вид (docx)
 ======================================
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: MP_to_WORD:
 
    modules
 

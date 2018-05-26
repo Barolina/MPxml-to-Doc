@@ -1,8 +1,6 @@
 utils package
 =============
 
-Submodules
-----------
 
 utils.config module
 -------------------
@@ -20,11 +18,3 @@ utils.xsd module
     :undoc-members:
     :show-inheritance:
 
-
-Module contents
----------------
-
-.. automodule:: utils
-    :members:
-    :undoc-members:
-    :show-inheritance:
