@@ -6,5 +6,4 @@ testsphinx
 
    main
    serialization
-   test
    utils
