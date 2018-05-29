@@ -4,6 +4,6 @@ testsphinx
 .. toctree::
    :maxdepth: 4
 
-   main
+   mp2docx
    serialization
    utils
