@@ -153,8 +153,111 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="mp2docx-module">
-<h1>mp2docx module<a class="headerlink" href="#mp2docx-module" title="Ссылка на этот заголовок">¶</a></h1>
+  <div class="section" id="module-mp2docx">
+<span id="mp2docx-module"></span><h1>mp2docx module<a class="headerlink" href="#module-mp2docx" title="Ссылка на этот заголовок">¶</a></h1>
+<p>Parsing xml to WORD</p>
+<dl class="class">
+<dt id="mp2docx.MpXml2Docx">
+<em class="property">class </em><code class="descclassname">mp2docx.</code><code class="descname">MpXml2Docx</code><a class="reference internal" href="_modules/mp2docx.html#MpXml2Docx"><span class="viewcode-link">[исходный код]</span></a><a class="headerlink" href="#mp2docx.MpXml2Docx" title="Ссылка на это определение">¶</a></dt>
+<dd><blockquote>
+<div>Базовые классы: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(в Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></div></blockquote>
+<p>Преобразователь xml межевого  в печатный вид (word)</p>
+<dl class="attribute">
+<dt id="mp2docx.MpXml2Docx.CNST_FORMAT">
+<code class="descname">CNST_FORMAT</code><em class="property"> = 'docx'</em><a class="headerlink" href="#mp2docx.MpXml2Docx.CNST_FORMAT" title="Ссылка на это определение">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="mp2docx.MpXml2Docx.CNST_PATH_TPL">
+<code class="descname">CNST_PATH_TPL</code><em class="property"> = 'template/common/'</em><a class="headerlink" href="#mp2docx.MpXml2Docx.CNST_PATH_TPL" title="Ссылка на это определение">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mp2docx.MpXml2Docx.close">
+<code class="descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/mp2docx.html#MpXml2Docx.close"><span class="viewcode-link">[исходный код]</span></a><a class="headerlink" href="#mp2docx.MpXml2Docx.close" title="Ссылка на это определение">¶</a></dt>
+<dd><p>удаление темповой директории</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="mp2docx.MpXml2Docx.combine_word_documents">
+<code class="descname">combine_word_documents</code><span class="sig-paren">(</span><em>result_path_file</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mp2docx.html#MpXml2Docx.combine_word_documents"><span class="viewcode-link">[исходный код]</span></a><a class="headerlink" href="#mp2docx.MpXml2Docx.combine_word_documents" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Собираем все файлы в единый документ
+:param input_files: iterable список файлов
+:return: result braid Docx</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="mp2docx.MpXml2Docx.fast_iter_element">
+<code class="descname">fast_iter_element</code><span class="sig-paren">(</span><em>elem: object</em>, <em>func: object</em>, <em>args: object = []</em>, <em>kwargs: object = {}</em><span class="sig-paren">)</span> &#x2192; object<a class="reference internal" href="_modules/mp2docx.html#MpXml2Docx.fast_iter_element"><span class="viewcode-link">[исходный код]</span></a><a class="headerlink" href="#mp2docx.MpXml2Docx.fast_iter_element" title="Ссылка на это определение">¶</a></dt>
+<dd><p>the node  cleaning
+:param context: context
+:param func: callback - renderToTPL
+:param args: args
+:param kwargs: kwargs
+:return: None
+:rtype: XMLElemet</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="mp2docx.MpXml2Docx.render_tpl">
+<code class="descname">render_tpl</code><span class="sig-paren">(</span><em>node</em>, <em>XMLClass</em>, <em>path_tpl</em>, <em>name_result</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mp2docx.html#MpXml2Docx.render_tpl"><span class="viewcode-link">[исходный код]</span></a><a class="headerlink" href="#mp2docx.MpXml2Docx.render_tpl" title="Ссылка на это определение">¶</a></dt>
+<dd><blockquote>
+<div>Рендер шаблона</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Параметры:</th><td class="field-body"><ul class="first simple">
+<li><strong>node</strong> – узел- noda</li>
+<li><strong>XMLClass</strong> – класс отвечающий за парсинг данной ноды в dict (to_dict)</li>
+<li><strong>path_tpl</strong> – путь до template</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Результат:</th><td class="field-body"><p class="first last">word файл  с наименованием =  [Number - позиция word- элемента в файле]+ [Number - позиция node].docx</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mp2docx.MpXml2Docx.run">
+<code class="descname">run</code><span class="sig-paren">(</span><em>path_file</em>, <em>result_file</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mp2docx.html#MpXml2Docx.run"><span class="viewcode-link">[исходный код]</span></a><a class="headerlink" href="#mp2docx.MpXml2Docx.run" title="Ссылка на это определение">¶</a></dt>
+<dd><blockquote>
+<div>run convert xml to  word</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Параметры:</th><td class="field-body"><ul class="first last simple">
+<li><strong>path_file</strong> – sourse file xml</li>
+<li><strong>result_file</strong> – path file resultc</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mp2docx.MpXml2Docx.run_render_tpl_node">
+<code class="descname">run_render_tpl_node</code><span class="sig-paren">(</span><em>elem</em>, <em>xml_class_name</em>, <em>is_clean</em>, <em>pos_node</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mp2docx.html#MpXml2Docx.run_render_tpl_node"><span class="viewcode-link">[исходный код]</span></a><a class="headerlink" href="#mp2docx.MpXml2Docx.run_render_tpl_node" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Запуск парсинга определенного блока xml
+:param elem: node
+:param xml_class_name: class -&gt; retun dict
+:param is_clean: очищать  узел или там еще что то нужно
+:param pos_node: просто порядковый номер позици узла
+:return: docx</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="mp2docx.xml2docx">
+<code class="descclassname">mp2docx.</code><code class="descname">xml2docx</code><span class="sig-paren">(</span><em>file</em>, <em>result</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mp2docx.html#xml2docx"><span class="viewcode-link">[исходный код]</span></a><a class="headerlink" href="#mp2docx.xml2docx" title="Ссылка на это определение">¶</a></dt>
+<dd></dd></dl>
+
 </div>
 
 

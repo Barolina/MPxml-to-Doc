@@ -9,7 +9,7 @@ from contextlib import closing
 from serialization.element_to_dict import *
 
 # set up logging
-from .serialization.settings_tpl import BINDER_FILE
+from serialization.settings_tpl import BINDER_FILE
 
 
 TYPE_XML_MP = 'MP'
