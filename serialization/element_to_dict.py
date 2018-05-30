@@ -19,6 +19,14 @@ from datetime import datetime
 # fileConfig('loggers/logging_config.ini')
 # logger = logging.getLogger()
 
+def test():
+	"""
+	test
+	
+	"""
+	print("sdfasdf")
+
+
 
 class XmlTitleDict:
     """
