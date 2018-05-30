@@ -30,7 +30,7 @@
     <link rel="index" title="Алфавитный указатель" href="genindex.html" />
     <link rel="search" title="Поиск" href="search.html" />
     <link rel="next" title="mp2docx module" href="mp2docx.html" />
-    <link rel="prev" title="testsphinx" href="modules.html" /> 
+    <link rel="prev" title="MP2DOCX" href="modules.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -81,7 +81,7 @@
             
               <p class="caption"><span class="caption-text">MP_to_WORD:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="modules.html">testsphinx</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">MP2DOCX</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Кратко</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#stack">Stack</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id2">Вводая</a></li>
@@ -146,7 +146,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-          <li><a href="modules.html">testsphinx</a> &raquo;</li>
+          <li><a href="modules.html">MP2DOCX</a> &raquo;</li>
         
       <li>Кратко</li>
     
@@ -260,35 +260,60 @@
 .. table:: Варианты межевых планов</p>
 <blockquote>
 <div><table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="67%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Тип/Наименование мп1</th>
+<th class="head">Содержимое из xsd</th>
+</tr>
+</thead>
 <tbody valign="top">
+<tr class="row-even"><td>Мп на образование  контуров</td>
+<td>FormaParcle -&gt; Contours -&gt; NewContours        +  |</td>
+</tr>
+<tr class="row-odd"><td>С нескольким образуемыми участками</td>
+<td>FormParcels -&gt; many NewParcels        +</td>
+</tr>
+<tr class="row-even"><td>Образование контуров, с уточнением смежного, так же</td>
+<td><dl class="first last docutils">
+<dt>FormParcels -&gt; many New Contours SpecifyRelated -&gt;</dt>
+<dd>ChangeParcels</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td>сведения о земельных участках, посредством которых</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>обеспечивается доступ</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>Уточнение зу с уточнение смежника</td>
+<td>SpecifyParcel -&gt; ExistParcel-&gt; SpacifyRelated-&gt;AllBorder</td>
+</tr>
+<tr class="row-even"><td>Уточнениу зу с уточнение смежника от точки до точки</td>
+<td><dl class="first last docutils">
+<dt>SpecifyParcel -&gt; ExistParcel -&gt; SubParcels -&gt; SpecifyRelated-&gt;</dt>
+<dd>ChangeBorder</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td>Уточнение многоконтурного зу</td>
+<td><dl class="first last docutils">
+<dt>SpecifyParcel -&gt;many ExistParcel -&gt;Contours -&gt; ExistContours</dt>
+<dd><blockquote class="first">
+<div>-&gt; RelatedParcels</div></blockquote>
+<p class="last">SpecifyParcel -&gt; many ExistContours
+FormParcels -&gt; a lot of SpatialElement
+SubParcels -&gt; NewSubParcels and ExistSubParcels
+ExistEZParcels</p>
+</dd>
+</dl>
+</td>
+</tr>
 </tbody>
 </table>
-<blockquote>
-<div><div class="line-block">
-<div class="line">Тип/Наименование мп1   | Содержимое из xsd         |</div>
-<div class="line-block">
-<div class="line">|            |          |          |</div>
-</div>
-</div>
-<p>+========================+============+
-| Мп на образование  контуров  | FormaParcle -&gt; Contours -&gt; NewContours     +  |
-+————————+————+
-| С нескольким образуемыми участками       | FormParcels -&gt; many NewParcels +         |
-+————————+————+
-| Образование контуров, с уточнением смежного, так же  сведения о земельных участках, посредством которых обеспечивается доступ            | FormParcels -&gt; many New Contours SpecifyRelated -&gt; ChangeParcels       +  |
-+————————+————+
-| Уточнение зу с уточнение смежника          |  SpecifyParcel -&gt; ExistParcel-&gt; SpacifyRelated-&gt;AllBorder    +          |
-+————————+————+
-| Уточнениу зу с уточнение смежника от точки до точки          | SpecifyParcel -&gt; ExistParcel -&gt; SubParcels -&gt; SpecifyRelated-&gt;ChangeBorder         |
-+————————+————+
-| Уточнение многоконтурного зу               |  SpecifyParcel -&gt;many ExistParcel -&gt;Contours -&gt; ExistContours-&gt; RelatedParcels       +       |
-+————————+————+</p>
-<blockquote>
-<div>SpecifyParcel -&gt; many ExistContours     +
-FormParcels -&gt; a lot of SpatialElement  +
-SubParcels -&gt; NewSubParcels and ExistSubParcels +
-ExistEZParcels</div></blockquote>
-</div></blockquote>
 </div></blockquote>
 </div>
 <div class="section" id="features">
@@ -314,7 +339,7 @@ ExistEZParcels</div></blockquote>
         <a href="mp2docx.html" class="btn btn-neutral float-right" title="mp2docx module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="modules.html" class="btn btn-neutral" title="testsphinx" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="modules.html" class="btn btn-neutral" title="MP2DOCX" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

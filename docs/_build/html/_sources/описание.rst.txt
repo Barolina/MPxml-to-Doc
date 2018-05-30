@@ -83,29 +83,26 @@ Stack
 #. -Межевой план.doc(docx)  - какой результат должен быть, после конвертации, для сравнения
 Для тестирования приложения Mp_to_Word, применялись следующие пакеты
 .. table:: Варианты межевых планов
- +------------------------+------------+
-    | Тип/Наименование мп1   | Содержимое из xsd	 | 
-    |  |            |          |          |
-    +========================+============+
-    | Мп на образование  контуров  | FormaParcle -> Contours -> NewContours	+  |
-    +------------------------+------------+
-    | С нескольким образуемыми участками       | FormParcels -> many NewParcels	+         |
-    +------------------------+------------+
-    | Образование контуров, с уточнением смежного, так же  сведения о земельных участках, посредством которых обеспечивается доступ            | FormParcels -> many New Contours SpecifyRelated -> ChangeParcels 	+  |
-    +------------------------+------------+
-    | Уточнение зу с уточнение смежника          |  SpecifyParcel -> ExistParcel-> SpacifyRelated->AllBorder	+          |
-    +------------------------+------------+
-    | Уточнениу зу с уточнение смежника от точки до точки          | SpecifyParcel -> ExistParcel -> SubParcels -> SpecifyRelated->ChangeBorder         |
-    +------------------------+------------+
-    | Уточнение многоконтурного зу	         |  SpecifyParcel ->many ExistParcel ->Contours -> ExistContours-> RelatedParcels	+       |
-    +------------------------+------------+
+    =========================================================  =================================================================
+      Тип/Наименование мп1    									Содержимое из xsd  
+    =========================================================  =================================================================
+     Мп на образование  контуров   								  FormaParcle -> Contours -> NewContours	+  |
+     С нескольким образуемыми участками  						  FormParcels -> many NewParcels	+       	
+	 Образование контуров, с уточнением смежного, так же   		  FormParcels -> many New Contours SpecifyRelated -> 
+																	ChangeParcels 
+	 сведения о земельных участках, посредством которых 
+	 обеспечивается доступ  
+	 Уточнение зу с уточнение смежника 						 	  SpecifyParcel -> ExistParcel-> SpacifyRelated->AllBorder
+	 Уточнениу зу с уточнение смежника от точки до точки          SpecifyParcel -> ExistParcel -> SubParcels -> SpecifyRelated->
+																  ChangeBorder  
+	 Уточнение многоконтурного зу								  SpecifyParcel ->many ExistParcel ->Contours -> ExistContours
+																	-> RelatedParcels									  
+																  SpecifyParcel -> many ExistContours	
+																  FormParcels -> a lot of SpatialElement
+																  SubParcels -> NewSubParcels and ExistSubParcels
+																  ExistEZParcels
+    =========================================================  =================================================================
 	
-	
-	SpecifyParcel -> many ExistContours	+
-	FormParcels -> a lot of SpatialElement	+
-	SubParcels -> NewSubParcels and ExistSubParcels	+
-	ExistEZParcels
-
 
 
 Features

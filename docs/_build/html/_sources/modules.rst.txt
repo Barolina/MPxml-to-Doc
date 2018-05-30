@@ -1,4 +1,4 @@
-testsphinx
+MP2DOCX
 ==========
 
 .. toctree::
