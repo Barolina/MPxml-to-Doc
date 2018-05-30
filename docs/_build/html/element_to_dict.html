@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Содержание модулей Python &mdash; Документация Mp_to_Word 1</title>
+  <title>element_to_dict module &mdash; Документация Mp_to_Word 1</title>
   
 
   
@@ -28,14 +28,7 @@
     <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Алфавитный указатель" href="genindex.html" />
-    <link rel="search" title="Поиск" href="search.html" />
- 
-
-    <script type="text/javascript">
-      DOCUMENTATION_OPTIONS.COLLAPSE_INDEX = true;
-    </script>
-
-
+    <link rel="search" title="Поиск" href="search.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -132,10 +125,14 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Содержание модулей Python</li>
+      <li>element_to_dict module</li>
     
     
       <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/element_to_dict.rst.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
     
@@ -147,67 +144,55 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
+  <div class="section" id="module-element_to_dict">
+<span id="element-to-dict-module"></span><h1>element_to_dict module<a class="headerlink" href="#module-element_to_dict" title="Ссылка на этот заголовок">¶</a></h1>
+<p>Сериализция основных блоков мп - xmk</p>
+<p>Основные блоки:</p>
+<p>Титульный лист,</p>
+<p>Исходные данные,</p>
+<p>Средства об измерениях,</p>
+<p>Сведения об обрузуемых зу и их частях,</p>
+<p>Сведения об уточняемом учатске и частях,</p>
+<p>Сведения об измененных учасках и их частях,</p>
+<p>Единое землепользование,</p>
+<p>Сведения о земельных участках, посредством которых обеспечивается доступ,</p>
+<p>Заключение кадастрового инженера</p>
+<dl class="class">
+<dt id="element_to_dict.XmlTitleDict">
+<em class="property">class </em><code class="descclassname">element_to_dict.</code><code class="descname">XmlTitleDict</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/element_to_dict.html#XmlTitleDict"><span class="viewcode-link">[исходный код]</span></a><a class="headerlink" href="#element_to_dict.XmlTitleDict" title="Ссылка на это определение">¶</a></dt>
+<dd><blockquote>
+<div>Базовые классы: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(в Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></div></blockquote>
+<p>Формированяи словаря для титульника</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Параметры:</th><td class="field-body"><strong>node</strong> – GeneralCadastralWorks</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="element_to_dict.XmlTitleDict.to_dict">
+<code class="descname">to_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/element_to_dict.html#XmlTitleDict.to_dict"><span class="viewcode-link">[исходный код]</span></a><a class="headerlink" href="#element_to_dict.XmlTitleDict.to_dict" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Данный  метод  возвращает словарь значения для  заполнения  шаблона title.docx</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Результат:</th><td class="field-body">dict-&gt;cnfg.Title</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
-   <h1>Содержание модулей Python</h1>
+</dd></dl>
 
-   <div class="modindex-jumpbox">
-   <a href="#cap-e"><strong>e</strong></a> | 
-   <a href="#cap-m"><strong>m</strong></a> | 
-   <a href="#cap-s"><strong>s</strong></a> | 
-   <a href="#cap-u"><strong>u</strong></a>
-   </div>
+<dl class="function">
+<dt id="element_to_dict.test">
+<code class="descclassname">element_to_dict.</code><code class="descname">test</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/element_to_dict.html#test"><span class="viewcode-link">[исходный код]</span></a><a class="headerlink" href="#element_to_dict.test" title="Ссылка на это определение">¶</a></dt>
+<dd></dd></dl>
 
-   <table class="indextable modindextable">
-     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
-     <tr class="cap" id="cap-e"><td></td><td>
-       <strong>e</strong></td><td></td></tr>
-     <tr>
-       <td></td>
-       <td>
-       <a href="element_to_dict.html#module-element_to_dict"><code class="xref">element_to_dict</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
-     <tr class="cap" id="cap-m"><td></td><td>
-       <strong>m</strong></td><td></td></tr>
-     <tr>
-       <td></td>
-       <td>
-       <a href="mp2docx.html#module-mp2docx"><code class="xref">mp2docx</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
-     <tr class="cap" id="cap-s"><td></td><td>
-       <strong>s</strong></td><td></td></tr>
-     <tr>
-       <td><img src="_static/minus.png" class="toggler"
-              id="toggle-1" style="display: none" alt="-" /></td>
-       <td>
-       <a href="serialization.html#module-serialization"><code class="xref">serialization</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="serialization.html#module-serialization.basic"><code class="xref">serialization.basic</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
-     <tr class="cap" id="cap-u"><td></td><td>
-       <strong>u</strong></td><td></td></tr>
-     <tr>
-       <td><img src="_static/minus.png" class="toggler"
-              id="toggle-2" style="display: none" alt="-" /></td>
-       <td>
-       <a href="utils.html#module-utils"><code class="xref">utils</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-2">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="utils.html#module-utils.config"><code class="xref">utils.config</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-2">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="utils.html#module-utils.xsd"><code class="xref">utils.xsd</code></a></td><td>
-       <em></em></td></tr>
-   </table>
+</div>
 
 
            </div>

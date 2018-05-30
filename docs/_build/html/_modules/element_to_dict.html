@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>serialization.element_to_dict &mdash; Документация Mp_to_Word 1</title>
+  <title>element_to_dict &mdash; Документация Mp_to_Word 1</title>
   
 
   
@@ -25,13 +25,13 @@
   
 
   
-    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="index" title="Алфавитный указатель" href="../../genindex.html" />
-    <link rel="search" title="Поиск" href="../../search.html" /> 
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
+    <link rel="search" title="Поиск" href="../search.html" /> 
 
   
-  <script src="../../_static/js/modernizr.min.js"></script>
+  <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
 
@@ -47,7 +47,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> Mp_to_Word
+            <a href="../index.html" class="icon icon-home"> Mp_to_Word
           
 
           
@@ -60,7 +60,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -79,7 +79,7 @@
             
               <p class="caption"><span class="caption-text">MP_to_WORD:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../modules.html">MP2DOCX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">MP2DOCX</a></li>
 </ul>
 
             
@@ -94,7 +94,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">Mp_to_Word</a>
+          <a href="../index.html">Mp_to_Word</a>
         
       </nav>
 
@@ -123,11 +123,11 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../index.html">Код модуля</a> &raquo;</li>
+          <li><a href="index.html">Код модуля</a> &raquo;</li>
         
-      <li>serialization.element_to_dict</li>
+      <li>element_to_dict</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -142,7 +142,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <h1>Исходный код serialization.element_to_dict</h1><div class="highlight"><pre>
+  <h1>Исходный код element_to_dict</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">  Сериализция основных блоков мп - xmk\n</span>
 <span class="sd">  Основные блоки:\n</span>
@@ -165,7 +165,7 @@
 <span class="c1"># fileConfig(&#39;loggers/logging_config.ini&#39;)</span>
 <span class="c1"># logger = logging.getLogger()</span>
 
-<div class="viewcode-block" id="test"><a class="viewcode-back" href="../../serialization.html#serialization.element_to_dict.test">[документация]</a><span class="k">def</span> <span class="nf">test</span><span class="p">():</span>
+<div class="viewcode-block" id="test"><a class="viewcode-back" href="../element_to_dict.html#element_to_dict.test">[документация]</a><span class="k">def</span> <span class="nf">test</span><span class="p">():</span>
 	<span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">	test</span>
 <span class="sd">	</span>
@@ -174,13 +174,14 @@
 
 
 
-<div class="viewcode-block" id="XmlTitleDict"><a class="viewcode-back" href="../../serialization.html#serialization.element_to_dict.XmlTitleDict">[документация]</a><span class="k">class</span> <span class="nc">XmlTitleDict</span><span class="p">:</span>
+<div class="viewcode-block" id="XmlTitleDict"><a class="viewcode-back" href="../element_to_dict.html#element_to_dict.XmlTitleDict">[документация]</a><span class="k">class</span> <span class="nc">XmlTitleDict</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">		Формированяи словаря для титульника</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		</span>
 <span class="sd">        :param node: GeneralCadastralWorks</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">node</span> <span class="o">=</span> <span class="n">node</span>
@@ -253,7 +254,7 @@
             <span class="k">pass</span>
         <span class="k">return</span> <span class="s1">&#39;&#39;</span>
 
-<div class="viewcode-block" id="XmlTitleDict.to_dict"><a class="viewcode-back" href="../../serialization.html#serialization.element_to_dict.XmlTitleDict.to_dict">[документация]</a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="XmlTitleDict.to_dict"><a class="viewcode-back" href="../element_to_dict.html#element_to_dict.XmlTitleDict.to_dict">[документация]</a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">		Данный  метод  возвращает словарь значения для  заполнения  шаблона title.docx</span>
 
@@ -307,7 +308,7 @@
 
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../../',
+            URL_ROOT:'../',
             VERSION:'1',
             LANGUAGE:'ru',
             COLLAPSE_INDEX:false,
@@ -316,17 +317,17 @@
             SOURCELINK_SUFFIX: '.txt'
         };
     </script>
-      <script type="text/javascript" src="../../_static/jquery.js"></script>
-      <script type="text/javascript" src="../../_static/underscore.js"></script>
-      <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
   
   
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
   
 
   <script type="text/javascript">
