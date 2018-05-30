@@ -68,7 +68,7 @@ Stack
 
 Основной процесс
 """"""""""""""""""
-.. image:: _static/MP_to_WORD_processpicture.png
+.. image:: _static\MP_to_WORD_process.png
        :scale: 300 %
        :align: center
        :alt: Основной процесс

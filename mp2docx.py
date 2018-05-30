@@ -1,35 +1,28 @@
 """
-    Parsing MP(xml) to WORD
-	
-"""
-try:
-    import os, sys
-    import argparse
-    import shutil
-    import tempfile
-    from builtins import enumerate
-    from contextlib import closing
-    from lxml import etree
-    from docxtpl import DocxTemplate
-    from lxml.etree import iterparse
-    sys.path.insert(0, os.path.abspath('./serialization/'))
-    from serialization.element_to_dict import *
-    from docx import Document
-    # set up logging
-    from serialization.settings_tpl import BINDER_FILE
+    Parsing xml to WORD
 
-except:
-    pass
+	"""
+import os
+import shutil
+import tempfile
+from builtins import enumerate
+from contextlib import closing
+from lxml import etree
+from lxml.etree import iterparse
 
-# try:
-#     logging.config.fileConfig("logging_config.ini")
-# except:
-#     pass
+from serialization.element_to_dict import *
+
+# set up logging
+from serialization.settings_tpl import BINDER_FILE
+
+
+TYPE_XML_MP = 'MP'
 
 
 class MpXml2Docx:
     """
         Преобразователь xml межевого  в печатный вид (word)
+		
     """
     CNST_FORMAT = 'docx'
     CNST_PATH_TPL = 'template/common/'
@@ -67,7 +60,7 @@ class MpXml2Docx:
 
     def render_tpl(self, node, XMLClass, path_tpl, name_result):
         """
-            Рендер шаблона
+        Рендер шаблона
 
         :param node:  узел- noda
         :param XMLClass: класс отвечающий за парсинг данной ноды в dict (to_dict)
@@ -81,33 +74,34 @@ class MpXml2Docx:
                 instance = XMLClass(node)
                 tpl.render(instance.to_dict())
                 file_res = '.'.join([name_result, self.CNST_FORMAT])
-                tpl.save(os.path.join(self.tempfolder, file_res))
-                logger.info(f"""Parsing {node}  done -> result {name_result}""")
+                tpl.save(os.path.join(self.tempfolder, file_res))                
         except Exception as e:
-            logger.error(f"""Error parsing {node} : {e}""")
+            pass
 
     def run_render_tpl_node(self, elem, xml_class_name, is_clean, pos_node):
         """
         Запуск парсинга определенного блока xml
+		
         :param elem: node
         :param xml_class_name: class -> retun dict
         :param is_clean: очищать  узел или там еще что то нужно
         :param pos_node: просто порядковый номер позици узла
         :return: docx
         """
+        dir = os.path.dirname(__file__)
+        path_tpl = os.path.normpath(os.path.join(dir,self.CNST_PATH_TPL + BINDER_FILE[elem.tag]['tpl']))
         if is_clean:
             self.fast_iter_element(elem, self.render_tpl, args=(xml_class_name,
-                                                                self.CNST_PATH_TPL + BINDER_FILE[elem.tag]['tpl'],
+                                                                path_tpl,
                                                                 BINDER_FILE[elem.tag]['pos_doc'] + str(pos_node)))
         else:
-            self.render_tpl(elem, xml_class_name, self.CNST_PATH_TPL + BINDER_FILE[elem.tag]['tpl'],
-                                                                BINDER_FILE[elem.tag]['pos_doc'] + str(pos_node))
+            self.render_tpl(elem, xml_class_name, path_tpl,BINDER_FILE[elem.tag]['pos_doc'] + str(pos_node))
 
     def __context_parser(self, context):
         """
-            Парсим node
-        :param context:
-        :return:None
+        Парсим node
+        
+		:param context:
         """
         i = 0
         try:
@@ -118,13 +112,14 @@ class MpXml2Docx:
                         continue
                     self.run_render_tpl_node(elem, BINDER_FILE[elem.tag]['class'], BINDER_FILE[elem.tag]['clear'], i)
         except Exception as e:
-            logger.error(f"""{e} ->{elem} """)
+            pass
         finally:
             del context
 
     def __xml_block_to_docx(self, path):
         """
-            Формирование списка док. файлов  по блокам xml
+        Формирование списка док. файлов  по блокам xml
+			
         :param path: путь до xml файла
         """
         # get an iterable
@@ -135,7 +130,8 @@ class MpXml2Docx:
 
     def __element_body_docx(self, path):
         """
-        :param path: получить блок ворд -файла
+        
+		:param path: получить блок ворд -файла
         :return: element docx
         """
         # Don't add a page break if you've
@@ -148,8 +144,8 @@ class MpXml2Docx:
     def combine_word_documents(self, result_path_file):
         """
         Собираем все файлы в единый документ
-        :param input_files: iterable список файлов
-        :return: result braid Docx
+        
+		:param result_path_file: iterable список файлов
         """
         files = sorted(os.listdir(self.tempfolder))
         _dcx = filter(lambda x: x.endswith('.' + self.CNST_FORMAT), files)
@@ -167,33 +163,15 @@ class MpXml2Docx:
 
     def run(self, path_file, result_file):
         """
-            run convert xml to  word
+        run convert xml to  word
 
         :param path_file:  sourse file xml
-        :param result_file:  path file result
+        :param result_file:  path file resultc
         """
         self.__xml_block_to_docx(path_file)
-        logger.info('START COMBINE WORDS')
         self.combine_word_documents(result_file)
-        logger.info('END')
 
 
-if __name__ == '__main__':
-    logger.info('START PARSING')
-    parser = argparse.ArgumentParser()
-
-    parser.add_argument('-i', '--input', help='Путь к xml-файлу', type=str)
-    parser.add_argument('-o', '--output', help='Файл для получения реультата', type=str)
-    args = parser.parse_args()
-    if not args.input:
-        parser.print_help()
-    else:
-        xml_file = os.path.normpath(args.input)
-        res_file = os.path.normpath(args.output)
-        try:
-            with closing(MpXMlToWORd()) as generat:
-                generat.run(xml_file, res_file)
-        except Exception as e:
-            logger.error(f"""Error parsing file {xml_file}  -> {e}""")
-        else:
-            logger.info(f"""The file path = {xml_file} -> parsing done! """)
+def xml2docx(file, result):
+    with closing(MpXml2Docx()) as generat:
+        generat.run(file, result)

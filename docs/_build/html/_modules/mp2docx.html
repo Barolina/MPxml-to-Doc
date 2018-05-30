@@ -144,37 +144,30 @@
             
   <h1>Исходный код mp2docx</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Parsing MP(xml) to WORD</span>
-<span class="sd">	</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="k">try</span><span class="p">:</span>
-    <span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span>
-    <span class="kn">import</span> <span class="nn">argparse</span>
-    <span class="kn">import</span> <span class="nn">shutil</span>
-    <span class="kn">import</span> <span class="nn">tempfile</span>
-    <span class="kn">from</span> <span class="nn">builtins</span> <span class="k">import</span> <span class="nb">enumerate</span>
-    <span class="kn">from</span> <span class="nn">contextlib</span> <span class="k">import</span> <span class="n">closing</span>
-    <span class="kn">from</span> <span class="nn">lxml</span> <span class="k">import</span> <span class="n">etree</span>
-    <span class="kn">from</span> <span class="nn">docxtpl</span> <span class="k">import</span> <span class="n">DocxTemplate</span>
-    <span class="kn">from</span> <span class="nn">lxml.etree</span> <span class="k">import</span> <span class="n">iterparse</span>
-    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s1">&#39;./serialization/&#39;</span><span class="p">))</span>
-    <span class="kn">from</span> <span class="nn">serialization.element_to_dict</span> <span class="k">import</span> <span class="o">*</span>
-    <span class="kn">from</span> <span class="nn">docx</span> <span class="k">import</span> <span class="n">Document</span>
-    <span class="c1"># set up logging</span>
-    <span class="kn">from</span> <span class="nn">serialization.settings_tpl</span> <span class="k">import</span> <span class="n">BINDER_FILE</span>
+<span class="sd">    Parsing xml to WORD</span>
 
-<span class="k">except</span><span class="p">:</span>
-    <span class="k">pass</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">shutil</span>
+<span class="kn">import</span> <span class="nn">tempfile</span>
+<span class="kn">from</span> <span class="nn">builtins</span> <span class="k">import</span> <span class="nb">enumerate</span>
+<span class="kn">from</span> <span class="nn">contextlib</span> <span class="k">import</span> <span class="n">closing</span>
+<span class="kn">from</span> <span class="nn">lxml</span> <span class="k">import</span> <span class="n">etree</span>
+<span class="kn">from</span> <span class="nn">lxml.etree</span> <span class="k">import</span> <span class="n">iterparse</span>
 
-<span class="c1"># try:</span>
-<span class="c1">#     logging.config.fileConfig(&quot;logging_config.ini&quot;)</span>
-<span class="c1"># except:</span>
-<span class="c1">#     pass</span>
+<span class="kn">from</span> <span class="nn">serialization.element_to_dict</span> <span class="k">import</span> <span class="o">*</span>
+
+<span class="c1"># set up logging</span>
+<span class="kn">from</span> <span class="nn">serialization.settings_tpl</span> <span class="k">import</span> <span class="n">BINDER_FILE</span>
+
+
+<span class="n">TYPE_XML_MP</span> <span class="o">=</span> <span class="s1">&#39;MP&#39;</span>
 
 
 <div class="viewcode-block" id="MpXml2Docx"><a class="viewcode-back" href="../mp2docx.html#mp2docx.MpXml2Docx">[документация]</a><span class="k">class</span> <span class="nc">MpXml2Docx</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Преобразователь xml межевого  в печатный вид (word)</span>
+<span class="sd">		</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">CNST_FORMAT</span> <span class="o">=</span> <span class="s1">&#39;docx&#39;</span>
     <span class="n">CNST_PATH_TPL</span> <span class="o">=</span> <span class="s1">&#39;template/common/&#39;</span>
@@ -212,7 +205,7 @@
 
 <div class="viewcode-block" id="MpXml2Docx.render_tpl"><a class="viewcode-back" href="../mp2docx.html#mp2docx.MpXml2Docx.render_tpl">[документация]</a>    <span class="k">def</span> <span class="nf">render_tpl</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="n">XMLClass</span><span class="p">,</span> <span class="n">path_tpl</span><span class="p">,</span> <span class="n">name_result</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">            Рендер шаблона</span>
+<span class="sd">        Рендер шаблона</span>
 
 <span class="sd">        :param node:  узел- noda</span>
 <span class="sd">        :param XMLClass: класс отвечающий за парсинг данной ноды в dict (to_dict)</span>
@@ -226,33 +219,34 @@
                 <span class="n">instance</span> <span class="o">=</span> <span class="n">XMLClass</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
                 <span class="n">tpl</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">instance</span><span class="o">.</span><span class="n">to_dict</span><span class="p">())</span>
                 <span class="n">file_res</span> <span class="o">=</span> <span class="s1">&#39;.&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">name_result</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">CNST_FORMAT</span><span class="p">])</span>
-                <span class="n">tpl</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tempfolder</span><span class="p">,</span> <span class="n">file_res</span><span class="p">))</span>
-                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;&quot;&quot;Parsing </span><span class="si">{node}</span><span class="s2">  done -&gt; result </span><span class="si">{name_result}</span><span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+                <span class="n">tpl</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tempfolder</span><span class="p">,</span> <span class="n">file_res</span><span class="p">))</span>                
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;&quot;&quot;Error parsing </span><span class="si">{node}</span><span class="s2"> : </span><span class="si">{e}</span><span class="s2">&quot;&quot;&quot;</span><span class="p">)</span></div>
+            <span class="k">pass</span></div>
 
 <div class="viewcode-block" id="MpXml2Docx.run_render_tpl_node"><a class="viewcode-back" href="../mp2docx.html#mp2docx.MpXml2Docx.run_render_tpl_node">[документация]</a>    <span class="k">def</span> <span class="nf">run_render_tpl_node</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">elem</span><span class="p">,</span> <span class="n">xml_class_name</span><span class="p">,</span> <span class="n">is_clean</span><span class="p">,</span> <span class="n">pos_node</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Запуск парсинга определенного блока xml</span>
+<span class="sd">		</span>
 <span class="sd">        :param elem: node</span>
 <span class="sd">        :param xml_class_name: class -&gt; retun dict</span>
 <span class="sd">        :param is_clean: очищать  узел или там еще что то нужно</span>
 <span class="sd">        :param pos_node: просто порядковый номер позици узла</span>
 <span class="sd">        :return: docx</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span>
+        <span class="n">path_tpl</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">normpath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">dir</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">CNST_PATH_TPL</span> <span class="o">+</span> <span class="n">BINDER_FILE</span><span class="p">[</span><span class="n">elem</span><span class="o">.</span><span class="n">tag</span><span class="p">][</span><span class="s1">&#39;tpl&#39;</span><span class="p">]))</span>
         <span class="k">if</span> <span class="n">is_clean</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">fast_iter_element</span><span class="p">(</span><span class="n">elem</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">render_tpl</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">xml_class_name</span><span class="p">,</span>
-                                                                <span class="bp">self</span><span class="o">.</span><span class="n">CNST_PATH_TPL</span> <span class="o">+</span> <span class="n">BINDER_FILE</span><span class="p">[</span><span class="n">elem</span><span class="o">.</span><span class="n">tag</span><span class="p">][</span><span class="s1">&#39;tpl&#39;</span><span class="p">],</span>
+                                                                <span class="n">path_tpl</span><span class="p">,</span>
                                                                 <span class="n">BINDER_FILE</span><span class="p">[</span><span class="n">elem</span><span class="o">.</span><span class="n">tag</span><span class="p">][</span><span class="s1">&#39;pos_doc&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">pos_node</span><span class="p">)))</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">render_tpl</span><span class="p">(</span><span class="n">elem</span><span class="p">,</span> <span class="n">xml_class_name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">CNST_PATH_TPL</span> <span class="o">+</span> <span class="n">BINDER_FILE</span><span class="p">[</span><span class="n">elem</span><span class="o">.</span><span class="n">tag</span><span class="p">][</span><span class="s1">&#39;tpl&#39;</span><span class="p">],</span>
-                                                                <span class="n">BINDER_FILE</span><span class="p">[</span><span class="n">elem</span><span class="o">.</span><span class="n">tag</span><span class="p">][</span><span class="s1">&#39;pos_doc&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">pos_node</span><span class="p">))</span></div>
+            <span class="bp">self</span><span class="o">.</span><span class="n">render_tpl</span><span class="p">(</span><span class="n">elem</span><span class="p">,</span> <span class="n">xml_class_name</span><span class="p">,</span> <span class="n">path_tpl</span><span class="p">,</span><span class="n">BINDER_FILE</span><span class="p">[</span><span class="n">elem</span><span class="o">.</span><span class="n">tag</span><span class="p">][</span><span class="s1">&#39;pos_doc&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">pos_node</span><span class="p">))</span></div>
 
     <span class="k">def</span> <span class="nf">__context_parser</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">            Парсим node</span>
-<span class="sd">        :param context:</span>
-<span class="sd">        :return:None</span>
+<span class="sd">        Парсим node</span>
+<span class="sd">        </span>
+<span class="sd">		:param context:</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="k">try</span><span class="p">:</span>
@@ -263,13 +257,14 @@
                         <span class="k">continue</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">run_render_tpl_node</span><span class="p">(</span><span class="n">elem</span><span class="p">,</span> <span class="n">BINDER_FILE</span><span class="p">[</span><span class="n">elem</span><span class="o">.</span><span class="n">tag</span><span class="p">][</span><span class="s1">&#39;class&#39;</span><span class="p">],</span> <span class="n">BINDER_FILE</span><span class="p">[</span><span class="n">elem</span><span class="o">.</span><span class="n">tag</span><span class="p">][</span><span class="s1">&#39;clear&#39;</span><span class="p">],</span> <span class="n">i</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;&quot;&quot;</span><span class="si">{e}</span><span class="s2"> -&gt;</span><span class="si">{elem}</span><span class="s2"> &quot;&quot;&quot;</span><span class="p">)</span>
+            <span class="k">pass</span>
         <span class="k">finally</span><span class="p">:</span>
             <span class="k">del</span> <span class="n">context</span>
 
     <span class="k">def</span> <span class="nf">__xml_block_to_docx</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">            Формирование списка док. файлов  по блокам xml</span>
+<span class="sd">        Формирование списка док. файлов  по блокам xml</span>
+<span class="sd">			</span>
 <span class="sd">        :param path: путь до xml файла</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># get an iterable</span>
@@ -280,7 +275,8 @@
 
     <span class="k">def</span> <span class="nf">__element_body_docx</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        :param path: получить блок ворд -файла</span>
+<span class="sd">        </span>
+<span class="sd">		:param path: получить блок ворд -файла</span>
 <span class="sd">        :return: element docx</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># Don&#39;t add a page break if you&#39;ve</span>
@@ -293,8 +289,8 @@
 <div class="viewcode-block" id="MpXml2Docx.combine_word_documents"><a class="viewcode-back" href="../mp2docx.html#mp2docx.MpXml2Docx.combine_word_documents">[документация]</a>    <span class="k">def</span> <span class="nf">combine_word_documents</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">result_path_file</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Собираем все файлы в единый документ</span>
-<span class="sd">        :param input_files: iterable список файлов</span>
-<span class="sd">        :return: result braid Docx</span>
+<span class="sd">        </span>
+<span class="sd">		:param result_path_file: iterable список файлов</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tempfolder</span><span class="p">))</span>
         <span class="n">_dcx</span> <span class="o">=</span> <span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.&#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">CNST_FORMAT</span><span class="p">),</span> <span class="n">files</span><span class="p">)</span>
@@ -312,36 +308,18 @@
 
 <div class="viewcode-block" id="MpXml2Docx.run"><a class="viewcode-back" href="../mp2docx.html#mp2docx.MpXml2Docx.run">[документация]</a>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path_file</span><span class="p">,</span> <span class="n">result_file</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">            run convert xml to  word</span>
+<span class="sd">        run convert xml to  word</span>
 
 <span class="sd">        :param path_file:  sourse file xml</span>
-<span class="sd">        :param result_file:  path file result</span>
+<span class="sd">        :param result_file:  path file resultc</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__xml_block_to_docx</span><span class="p">(</span><span class="n">path_file</span><span class="p">)</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;START COMBINE WORDS&#39;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">combine_word_documents</span><span class="p">(</span><span class="n">result_file</span><span class="p">)</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;END&#39;</span><span class="p">)</span></div></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">combine_word_documents</span><span class="p">(</span><span class="n">result_file</span><span class="p">)</span></div></div>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;START PARSING&#39;</span><span class="p">)</span>
-    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
-
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-i&#39;</span><span class="p">,</span> <span class="s1">&#39;--input&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Путь к xml-файлу&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-o&#39;</span><span class="p">,</span> <span class="s1">&#39;--output&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Файл для получения реультата&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span>
-    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">args</span><span class="o">.</span><span class="n">input</span><span class="p">:</span>
-        <span class="n">parser</span><span class="o">.</span><span class="n">print_help</span><span class="p">()</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">xml_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">normpath</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">input</span><span class="p">)</span>
-        <span class="n">res_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">normpath</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">output</span><span class="p">)</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="k">with</span> <span class="n">closing</span><span class="p">(</span><span class="n">MpXMlToWORd</span><span class="p">())</span> <span class="k">as</span> <span class="n">generat</span><span class="p">:</span>
-                <span class="n">generat</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">xml_file</span><span class="p">,</span> <span class="n">res_file</span><span class="p">)</span>
-        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;&quot;&quot;Error parsing file </span><span class="si">{xml_file}</span><span class="s2">  -&gt; </span><span class="si">{e}</span><span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;&quot;&quot;The file path = </span><span class="si">{xml_file}</span><span class="s2"> -&gt; parsing done! &quot;&quot;&quot;</span><span class="p">)</span>
+<div class="viewcode-block" id="xml2docx"><a class="viewcode-back" href="../mp2docx.html#mp2docx.xml2docx">[документация]</a><span class="k">def</span> <span class="nf">xml2docx</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">result</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">closing</span><span class="p">(</span><span class="n">MpXml2Docx</span><span class="p">())</span> <span class="k">as</span> <span class="n">generat</span><span class="p">:</span>
+        <span class="n">generat</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span></div>
 </pre></div>
 
            </div>
