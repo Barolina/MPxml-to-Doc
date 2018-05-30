@@ -146,7 +146,7 @@
 <span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Parsing xml to WORD</span>
 
-<span class="sd">	&quot;&quot;&quot;</span>
+<span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">shutil</span>
 <span class="kn">import</span> <span class="nn">tempfile</span>
@@ -166,7 +166,7 @@
 
 <div class="viewcode-block" id="MpXml2Docx"><a class="viewcode-back" href="../mp2docx.html#mp2docx.MpXml2Docx">[документация]</a><span class="k">class</span> <span class="nc">MpXml2Docx</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Преобразователь xml межевого  в печатный вид (word)</span>
+<span class="sd">    Преобразователь xml межевого  в печатный вид (word)</span>
 <span class="sd">		</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">CNST_FORMAT</span> <span class="o">=</span> <span class="s1">&#39;docx&#39;</span>
@@ -178,7 +178,7 @@
 
 <div class="viewcode-block" id="MpXml2Docx.close"><a class="viewcode-back" href="../mp2docx.html#mp2docx.MpXml2Docx.close">[документация]</a>    <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">            удаление темповой директории</span>
+<span class="sd">        удаление темповой директории</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tempfolder</span><span class="p">):</span>
@@ -186,13 +186,14 @@
 
 <div class="viewcode-block" id="MpXml2Docx.fast_iter_element"><a class="viewcode-back" href="../mp2docx.html#mp2docx.MpXml2Docx.fast_iter_element">[документация]</a>    <span class="k">def</span> <span class="nf">fast_iter_element</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">elem</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span> <span class="n">func</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span> <span class="n">args</span><span class="p">:</span> <span class="nb">object</span> <span class="o">=</span> <span class="p">[],</span> <span class="n">kwargs</span><span class="p">:</span> <span class="nb">object</span> <span class="o">=</span> <span class="p">{})</span> <span class="o">-&gt;</span> <span class="nb">object</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">            the node  cleaning</span>
-<span class="sd">            :param context: context</span>
-<span class="sd">            :param func: callback - renderToTPL</span>
-<span class="sd">            :param args: args</span>
-<span class="sd">            :param kwargs: kwargs</span>
-<span class="sd">            :return: None</span>
-<span class="sd">            :rtype: XMLElemet</span>
+<span class="sd">		the node  cleaning</span>
+<span class="sd">		</span>
+<span class="sd">		:param context: context</span>
+<span class="sd">		:param func: callback - renderToTPL</span>
+<span class="sd">		:param args: args</span>
+<span class="sd">		:param kwargs: kwargs</span>
+<span class="sd">		:return: None</span>
+<span class="sd">		:rtype: XMLElemet</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">func</span><span class="p">(</span><span class="n">elem</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="n">elem</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
@@ -211,7 +212,6 @@
 <span class="sd">        :param XMLClass: класс отвечающий за парсинг данной ноды в dict (to_dict)</span>
 <span class="sd">        :param path_tpl: путь до template</span>
 <span class="sd">        :return: word файл  с наименованием =  [Number - позиция word- элемента в файле]+ [Number - позиция node].docx</span>
-
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">node</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">node</span><span class="o">.</span><span class="n">text</span><span class="p">:</span>

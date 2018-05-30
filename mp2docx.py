@@ -1,7 +1,7 @@
 """
     Parsing xml to WORD
 
-	"""
+"""
 import os
 import shutil
 import tempfile
@@ -21,7 +21,7 @@ TYPE_XML_MP = 'MP'
 
 class MpXml2Docx:
     """
-        Преобразователь xml межевого  в печатный вид (word)
+    Преобразователь xml межевого  в печатный вид (word)
 		
     """
     CNST_FORMAT = 'docx'
@@ -33,7 +33,7 @@ class MpXml2Docx:
 
     def close(self):
         """
-            удаление темповой директории
+        удаление темповой директории
 
         """
         if os.path.exists(self.tempfolder):
@@ -41,13 +41,14 @@ class MpXml2Docx:
 
     def fast_iter_element(self, elem: object, func: object, args: object = [], kwargs: object = {}) -> object:
         """
-            the node  cleaning
-            :param context: context
-            :param func: callback - renderToTPL
-            :param args: args
-            :param kwargs: kwargs
-            :return: None
-            :rtype: XMLElemet
+		the node  cleaning
+		
+		:param context: context
+		:param func: callback - renderToTPL
+		:param args: args
+		:param kwargs: kwargs
+		:return: None
+		:rtype: XMLElemet
         """
         func(elem, *args, **kwargs)
         elem.clear()
@@ -66,7 +67,6 @@ class MpXml2Docx:
         :param XMLClass: класс отвечающий за парсинг данной ноды в dict (to_dict)
         :param path_tpl: путь до template
         :return: word файл  с наименованием =  [Number - позиция word- элемента в файле]+ [Number - позиция node].docx
-
         """
         try:
             if len(node) > 0 or node.text:
