@@ -1,30 +1,18 @@
 """
-    Parsing MP(xml) to WORD
-	
+    Parsing xml to WORD
 """
-try:
-    import os, sys
-    import argparse
-    import shutil
-    import tempfile
-    from builtins import enumerate
-    from contextlib import closing
-    from lxml import etree
-    from docxtpl import DocxTemplate
-    from lxml.etree import iterparse
-    sys.path.insert(0, os.path.abspath('./serialization/'))
-    from serialization.element_to_dict import *
-    from docx import Document
-    # set up logging
-    from serialization.settings_tpl import BINDER_FILE
+import os
+import shutil
+import tempfile
+from builtins import enumerate
+from contextlib import closing
+from serialization.element_to_dict import *
 
-except:
-    pass
+# set up logging
+from serialization.settings_tpl import BINDER_FILE
 
-# try:
-#     logging.config.fileConfig("logging_config.ini")
-# except:
-#     pass
+
+TYPE_XML_MP = 'MP'
 
 
 class MpXml2Docx:
@@ -82,9 +70,9 @@ class MpXml2Docx:
                 tpl.render(instance.to_dict())
                 file_res = '.'.join([name_result, self.CNST_FORMAT])
                 tpl.save(os.path.join(self.tempfolder, file_res))
-                logger.info(f"""Parsing {node}  done -> result {name_result}""")
+                
         except Exception as e:
-            logger.error(f"""Error parsing {node} : {e}""")
+            pass
 
     def run_render_tpl_node(self, elem, xml_class_name, is_clean, pos_node):
         """
@@ -95,13 +83,14 @@ class MpXml2Docx:
         :param pos_node: просто порядковый номер позици узла
         :return: docx
         """
+        dir = os.path.dirname(__file__)
+        path_tpl = os.path.normpath(os.path.join(dir,self.CNST_PATH_TPL + BINDER_FILE[elem.tag]['tpl']))
         if is_clean:
             self.fast_iter_element(elem, self.render_tpl, args=(xml_class_name,
-                                                                self.CNST_PATH_TPL + BINDER_FILE[elem.tag]['tpl'],
+                                                                path_tpl,
                                                                 BINDER_FILE[elem.tag]['pos_doc'] + str(pos_node)))
         else:
-            self.render_tpl(elem, xml_class_name, self.CNST_PATH_TPL + BINDER_FILE[elem.tag]['tpl'],
-                                                                BINDER_FILE[elem.tag]['pos_doc'] + str(pos_node))
+            self.render_tpl(elem, xml_class_name, path_tpl,BINDER_FILE[elem.tag]['pos_doc'] + str(pos_node))
 
     def __context_parser(self, context):
         """
@@ -118,7 +107,7 @@ class MpXml2Docx:
                         continue
                     self.run_render_tpl_node(elem, BINDER_FILE[elem.tag]['class'], BINDER_FILE[elem.tag]['clear'], i)
         except Exception as e:
-            logger.error(f"""{e} ->{elem} """)
+            pass
         finally:
             del context
 
@@ -170,7 +159,7 @@ class MpXml2Docx:
             run convert xml to  word
 
         :param path_file:  sourse file xml
-        :param result_file:  path file result
+        :param result_file:  path file resultc
         """
         self.__xml_block_to_docx(path_file)
         logger.info('START COMBINE WORDS')
@@ -178,22 +167,6 @@ class MpXml2Docx:
         logger.info('END')
 
 
-if __name__ == '__main__':
-    logger.info('START PARSING')
-    parser = argparse.ArgumentParser()
-
-    parser.add_argument('-i', '--input', help='Путь к xml-файлу', type=str)
-    parser.add_argument('-o', '--output', help='Файл для получения реультата', type=str)
-    args = parser.parse_args()
-    if not args.input:
-        parser.print_help()
-    else:
-        xml_file = os.path.normpath(args.input)
-        res_file = os.path.normpath(args.output)
-        try:
-            with closing(MpXMlToWORd()) as generat:
-                generat.run(xml_file, res_file)
-        except Exception as e:
-            logger.error(f"""Error parsing file {xml_file}  -> {e}""")
-        else:
-            logger.info(f"""The file path = {xml_file} -> parsing done! """)
+def xml2docx(file, result):
+    with closing(MpXml2Docx()) as generat:
+        generat.run(file, result)

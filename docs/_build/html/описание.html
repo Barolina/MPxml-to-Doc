@@ -1,0 +1,335 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="ru" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="ru" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Кратко &mdash; Документация Mp_to_Word 1</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+    <link rel="next" title="mp2docx module" href="mp2docx.html" />
+    <link rel="prev" title="testsphinx" href="modules.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Mp_to_Word
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">MP_to_WORD:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">testsphinx</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Кратко</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#stack">Stack</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Вводая</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Существует семь видов межевых планов:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">К текстовой части межевого плана по уточнению границ и площади земельного участка относятся следующие разделы:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">Разделы текстовой части межевого плана по образованию земельного участка из земель государственной и муниципальной собственности:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">Текстовая часть межевого плана по образованию земельного участка в результате выдела в счёт доли (долей)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#jinja2">И на основании выще изложенного, было сгенерировано несколько шаблонов, используя шаблонизатор jinja2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#template-mp-to-word">Основные template mp_to_word</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">Основной процесс</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">Тестирование проводилось на след пакетах</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#features">Features</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mp2docx.html">mp2docx module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serialization.html">serialization package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html">utils package</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Mp_to_Word</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="modules.html">testsphinx</a> &raquo;</li>
+        
+      <li>Кратко</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/описание.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>Кратко<a class="headerlink" href="#id1" title="Ссылка на этот заголовок">¶</a></h1>
+</div>
+<div class="section" id="stack">
+<h1>Stack<a class="headerlink" href="#stack" title="Ссылка на этот заголовок">¶</a></h1>
+<blockquote>
+<div>python-docx - <a class="reference external" href="https://github.com/elapouya/python-docx-template">https://github.com/elapouya/python-docx-template</a>
+lxml</div></blockquote>
+<div class="section" id="id2">
+<h2>Вводая<a class="headerlink" href="#id2" title="Ссылка на этот заголовок">¶</a></h2>
+<p><strong>Межевой план</strong> — это документ, отражающий все актуальные сведения о земельном участке, включая самые последние уточнения. Поскольку этот план содержит главные характеристики конкретного участка, он необходим для:</p>
+<ol class="arabic simple">
+<li>постановки земли на кадастровый учет;</li>
+<li>перераспределения смежных наделов;</li>
+<li>выделения доли из общей собственности.</li>
+</ol>
+<p>… более подробную инфу на search to google</p>
+</div>
+<div class="section" id="id3">
+<h2>Существует семь видов межевых планов:<a class="headerlink" href="#id3" title="Ссылка на этот заголовок">¶</a></h2>
+<ol class="arabic simple">
+<li>по уточнению границ и площади земельных участка;</li>
+<li>по образованию земельных участков из земель государственной или муниципальной собственности;</li>
+<li>по образованию земельного участка в результате выдела в счёт доли (долей) в праве общей собственности;</li>
+<li>по объединению земельных участков;</li>
+<li>по перераспределению земельных участков;</li>
+<li>по исправлению кадастровой ошибки земельных участков;</li>
+<li>по разделу земельных участков.</li>
+</ol>
+</div>
+<div class="section" id="id4">
+<h2>К текстовой части межевого плана по уточнению границ и площади земельного участка относятся следующие разделы:<a class="headerlink" href="#id4" title="Ссылка на этот заголовок">¶</a></h2>
+<ol class="arabic simple">
+<li>исходные данные;</li>
+<li>сведения о выполненных измерениях и расчётах;</li>
+<li>сведения об уточняемых земельных участках и их частях;</li>
+<li>заключение кадастрового инженера;</li>
+</ol>
+</div>
+<div class="section" id="id5">
+<h2>Разделы текстовой части межевого плана по образованию земельного участка из земель государственной и муниципальной собственности:<a class="headerlink" href="#id5" title="Ссылка на этот заголовок">¶</a></h2>
+<ol class="arabic simple">
+<li>исходные данные;</li>
+<li>сведения о выполненных измерениях и расчётах;</li>
+<li>сведения об образуемых земельных участках и их частях;</li>
+<li>заключение кадастрового инженера.</li>
+</ol>
+</div>
+<div class="section" id="id6">
+<h2>Текстовая часть межевого плана по образованию земельного участка в результате выдела в счёт доли (долей)<a class="headerlink" href="#id6" title="Ссылка на этот заголовок">¶</a></h2>
+<ol class="arabic simple">
+<li>исходные данные;</li>
+<li>сведения о выполненных измерениях и расчётах;</li>
+<li>сведения об образуемых земельных участках и их частях;</li>
+<li>сведения об изменённых земельных участках и их частях;</li>
+<li>сведения об обеспечении доступа к образуемым или изменённым земельным участкам.</li>
+</ol>
+</div>
+<div class="section" id="jinja2">
+<h2>И на основании выще изложенного, было сгенерировано несколько шаблонов, используя шаблонизатор jinja2<a class="headerlink" href="#jinja2" title="Ссылка на этот заголовок">¶</a></h2>
+</div>
+<div class="section" id="template-mp-to-word">
+<h2>Основные template mp_to_word<a class="headerlink" href="#template-mp-to-word" title="Ссылка на этот заголовок">¶</a></h2>
+<blockquote>
+<div><ol class="arabic simple">
+<li>титульный лист (title),</li>
+<li>исходные данные (inputdata)</li>
+<li>сведения об измерениях и расчетах (survey)</li>
+<li>сведения об образуемых земельных участках и их частях (newparcel)</li>
+<li>сведения об изменённых земельных участках и их частях (changeparcel)</li>
+<li>сведения об обеспечении доступа к образуемым или изменённым земельным участкам. (providing)</li>
+<li>сведения об уточняемом участке (existparcel)</li>
+<li>заключение кадастрового инженера (conclusion)</li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="id7">
+<h2>Основной процесс<a class="headerlink" href="#id7" title="Ссылка на этот заголовок">¶</a></h2>
+<a class="reference internal image-reference" href="_static/MP_to_WORD_processpicture.png"><img alt="Основной процесс" class="align-center" src="_static/MP_to_WORD_processpicture.png" /></a>
+</div>
+<div class="section" id="id8">
+<h2>Тестирование проводилось на след пакетах<a class="headerlink" href="#id8" title="Ссылка на этот заголовок">¶</a></h2>
+</div>
+<div class="section" id="features">
+<h2>Features<a class="headerlink" href="#features" title="Ссылка на этот заголовок">¶</a></h2>
+<ol class="arabic simple">
+<li>модулья получения списка координат</li>
+<li>модуль преобразования  основных блоков (необходимых для формиорвания теестовой части) содержащихся в xml в фомат json</li>
+<li>модуль настроек json объектов</li>
+<li>модуль основной модуль итерации по xml файлу</li>
+<li>модуль для  работы с  word документами</li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="mp2docx.html" class="btn btn-neutral float-right" title="mp2docx module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="modules.html" class="btn btn-neutral" title="testsphinx" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Larisa.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1',
+            LANGUAGE:'ru',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
