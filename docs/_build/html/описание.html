@@ -252,6 +252,44 @@
 </div>
 <div class="section" id="id8">
 <h2>Тестирование проводилось на след пакетах<a class="headerlink" href="#id8" title="Ссылка на этот заголовок">¶</a></h2>
+<p>Структура папок для тестирования:
+#. -xml файл межевого плана;
+#. -zip – исходные данные;
+#. -Межевой план.doc(docx)  - какой результат должен быть, после конвертации, для сравнения
+Для тестирования приложения Mp_to_Word, применялись следующие пакеты
+.. table:: Варианты межевых планов</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<tbody valign="top">
+</tbody>
+</table>
+<blockquote>
+<div><div class="line-block">
+<div class="line">Тип/Наименование мп1   | Содержимое из xsd         |</div>
+<div class="line-block">
+<div class="line">|            |          |          |</div>
+</div>
+</div>
+<p>+========================+============+
+| Мп на образование  контуров  | FormaParcle -&gt; Contours -&gt; NewContours     +  |
++————————+————+
+| С нескольким образуемыми участками       | FormParcels -&gt; many NewParcels +         |
++————————+————+
+| Образование контуров, с уточнением смежного, так же  сведения о земельных участках, посредством которых обеспечивается доступ            | FormParcels -&gt; many New Contours SpecifyRelated -&gt; ChangeParcels       +  |
++————————+————+
+| Уточнение зу с уточнение смежника          |  SpecifyParcel -&gt; ExistParcel-&gt; SpacifyRelated-&gt;AllBorder    +          |
++————————+————+
+| Уточнениу зу с уточнение смежника от точки до точки          | SpecifyParcel -&gt; ExistParcel -&gt; SubParcels -&gt; SpecifyRelated-&gt;ChangeBorder         |
++————————+————+
+| Уточнение многоконтурного зу               |  SpecifyParcel -&gt;many ExistParcel -&gt;Contours -&gt; ExistContours-&gt; RelatedParcels       +       |
++————————+————+</p>
+<blockquote>
+<div>SpecifyParcel -&gt; many ExistContours     +
+FormParcels -&gt; a lot of SpatialElement  +
+SubParcels -&gt; NewSubParcels and ExistSubParcels +
+ExistEZParcels</div></blockquote>
+</div></blockquote>
+</div></blockquote>
 </div>
 <div class="section" id="features">
 <h2>Features<a class="headerlink" href="#features" title="Ссылка на этот заголовок">¶</a></h2>
