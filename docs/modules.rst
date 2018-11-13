@@ -1,4 +1,4 @@
-MP2DOCX
+MP2DOCX_PDF
 ==========
 
 .. toctree::
