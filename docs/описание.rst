@@ -3,6 +3,7 @@
 
     #. python-docx - https://github.com/elapouya/python-docx-template
     #. lxml
+    #. libreoffice for system Linux, если необходима печать в PDF
 	
 
 Основной процесс
