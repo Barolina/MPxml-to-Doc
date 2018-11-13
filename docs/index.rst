@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Mp_to_Word_PDF реобразование межевого плана (xml) в печатный вид (docx|PDF)
+Mp_to_Word_PDF преобразование межевого плана (xml) в печатный вид (docx|PDF)
 ============================================================================
 
 .. toctree::
@@ -19,3 +19,11 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+
+
+
+Быстрый старт
+
+   main.py -in="путь_до_xml_мп.xml" f="pdf"  # печать в pdf
+   
+   main.py -in="путь_до_xml_мп.xml"          # печать в doc
