@@ -22,8 +22,9 @@ Indices and tables
 
 
 
-Быстрый старт
+Replace docx pictures
+---------------------
 
-   main.py -in="путь_до_xml_мп.xml" f="pdf"  # печать в pdf
-   
-   main.py -in="путь_до_xml_мп.xml"          # печать в doc
+      main.py -in="путь_до_xml_мп.xml" f="pdf"  # печать в pdf
+
+      main.py -in="путь_до_xml_мп.xml"          # печать в doc
